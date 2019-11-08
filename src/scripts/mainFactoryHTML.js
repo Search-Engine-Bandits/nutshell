@@ -8,12 +8,19 @@ export default {
                 <aside id="messageList"></aside>
             </div>
             <div id="rightFrame">
-                <article id="taskList"></article>
+                <article id="taskContainer">
+                    <div id="taskList">
+                    </div>
+                    <div id="newTaskDiv">
+                    </div>
+                </article>
                 <article id="articleList"></article>
                 <article id="eventList"></article>
             </div>
         </div>
             `
-    }
+    },
+
+
 
 }

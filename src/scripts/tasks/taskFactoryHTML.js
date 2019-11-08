@@ -1,3 +1,30 @@
 export default {
-    
+    newTaskButton: () => {
+        return `
+        <button id="newTaskButton">New Task</button>
+        `
+    },
+
+    newTaskForm: () => {
+        return `
+        <label>Task Name</label>
+        <input type="text" id="taskName" placeholder="Enter Task Name" required>
+        <label>Expected Completion Date</label>
+        <input type="date" id="taskDate" required>
+        <button id="submitNewTaskButton">Submit</button>
+        `
+    },
+
+    taskItem: (taskObject) => {
+        return `
+       <div class="singleTask">
+            <input type="checkbox" id="checkbox--${taskObject.id}>
+            <div class="taskName">${taskObject.task}</div>
+            <div class="taskDate">Expected completion date: ${taskObject.compDate}</div>
+            <button id="deleteTask--${taskObject.id}">Delete</button>
+            <button id="editTask--${taskObject.id}">Edit</button>
+       </div>
+       `
+    }
+
 }
