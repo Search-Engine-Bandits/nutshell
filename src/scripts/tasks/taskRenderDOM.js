@@ -13,5 +13,14 @@ export default {
     renderNewTaskForm: () => {
         let taskForm = html.newTaskForm()
         document.querySelector("#newTaskDiv").innerHTML = taskForm
+    },
+
+    renderTaskList: (tasks) => {
+        let taskList = ""
+        tasks.forEach(task => {
+            const taskHtml = html.taskItem(task)
+            taskList += taskHtml
+        })
+        document.querySelector("#taskList").innerHTML = taskList
     }
 }

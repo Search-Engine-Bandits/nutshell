@@ -22,12 +22,12 @@ export default {
                     compDate: compDate,
                     completed: completed
                 }
-
-                console.log(taskObject)
                 
                 if (userId && task && compDate) {
                     
                     api.createSingleTask(taskObject)
+                    .then(api.getAllTasks)
+                    .then(response => renderTask.renderTaskList(response))
                 }
                 else {
                     window.alert("Please complete all fields!!!!")

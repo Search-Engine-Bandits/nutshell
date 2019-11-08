@@ -8,5 +8,10 @@ export default {
             },
             body: JSON.stringify(taskObject)
         })
-    }
+    },
+
+    getAllTasks: () => {
+        return fetch("http://localhost:8088/tasks?completed=false")
+            .then(tasks => tasks.json())
+    },
 }

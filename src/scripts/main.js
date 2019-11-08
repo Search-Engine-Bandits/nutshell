@@ -17,6 +17,7 @@ sessionStorage.setItem("activeUser", 1)
 
 document.querySelector("#container").innerHTML = html.populateInitialView()
 
+
 renderTask.renderNewTaskButton()
 
 taskListener.listenForNewTask()
