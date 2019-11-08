@@ -8,9 +8,14 @@
 
 
 import html from "./mainFactoryHTML.js"
+import renderTask from "./tasks/taskRenderDOM.js"
 
 // adding initial HTML framework to the DOM
 
 document.querySelector("#container").innerHTML = html.populateInitialView()
+
+renderTask.renderNewTaskButton()
+// renderTask.renderNewTaskForm()
+
 
 
