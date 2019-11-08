@@ -11,7 +11,7 @@ export default {
                 <article id="taskContainer">
                     <div id="taskList">
                     </div>
-                    <div id="newTaskButton">
+                    <div id="newTaskDiv">
                     </div>
                 </article>
                 <article id="articleList"></article>

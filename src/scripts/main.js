@@ -9,13 +9,18 @@
 
 import html from "./mainFactoryHTML.js"
 import renderTask from "./tasks/taskRenderDOM.js"
+import taskListener from "./tasks/taskEventListeners.js"
 
 // adding initial HTML framework to the DOM
+
+sessionStorage.setItem("activeUser", 1)
 
 document.querySelector("#container").innerHTML = html.populateInitialView()
 
 renderTask.renderNewTaskButton()
-// renderTask.renderNewTaskForm()
+
+taskListener.listenForNewTask()
+
 
 
 
