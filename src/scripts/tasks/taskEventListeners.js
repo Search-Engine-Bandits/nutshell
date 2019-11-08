@@ -36,5 +36,26 @@ export default {
                 renderTask.renderNewTaskButton()
             }
         })
+    },
+
+    listenForTaskComplete: () => {
+        document.querySelector("#taskContainer").addEventListener("click", () => {
+            
+            if (event.target.id.includes("taskCheckbox--")) {
+                const completedTaskId = event.target.id.split("--")[1]
+                api.getSingleTask(completedTaskId)
+                .then(response => {
+                    console.log(response)
+                    response.completed = true
+                    return response
+                })
+                .then(response => {
+                    console.log(response.id)
+                    api.completeTask(response)
+                })
+                .then(api.getAllTasks)
+                .then(renderTask.renderTaskList)
+            }
+        })
     }
 }

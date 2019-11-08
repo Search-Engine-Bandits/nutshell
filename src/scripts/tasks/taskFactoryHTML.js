@@ -18,7 +18,7 @@ export default {
     taskItem: (taskObject) => {
         return `
        <div class="singleTask">
-            <input type="checkbox" id="checkbox--${taskObject.id}>
+            <input type="checkbox" id="taskCheckbox--${taskObject.id}">
             <div class="taskName">${taskObject.task}</div>
             <div class="taskDate">Expected completion date: ${taskObject.compDate}</div>
             <button id="deleteTask--${taskObject.id}">Delete</button>
