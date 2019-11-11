@@ -11,6 +11,9 @@ import html from "./mainFactoryHTML.js"
 import renderTask from "./tasks/taskRenderDOM.js"
 import taskListener from "./tasks/taskEventListeners.js"
 import api from "./tasks/taskData.js"
+import renderMessage from "./messages/messageRenderDOM.js"
+import messageListener from "./messages/messageEventListeners.js"
+import messageApi from "./messages/messageData.js"
 
 
 // adding initial HTML framework to the DOM
@@ -34,3 +37,11 @@ taskListener.listenForTaskDelete()
 taskListener.listenForTaskEdit()
 
 taskListener.listenForTaskEditSubmit()
+
+messageApi.getAllMessages()
+.then(response => renderMessage.renderMessageList(response))
+.then(renderMessage.renderNewMessageForm)
+.then(messageListener.listenForNewMessage)
+.then(messageListener.listenForMessageEdit)
+.then(messageListener.listenForMessageEditSubmit)
+.then(messageListener.listenForMessageFriend)

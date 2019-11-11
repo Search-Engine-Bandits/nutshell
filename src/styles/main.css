@@ -1,0 +1,19 @@
+#messageContainer {
+    color: Blue;
+    background-color: aquamarine;
+    border: 10px;
+    display: flex;
+    flex-direction: column;
+};
+
+#messageList{
+    color: red;
+    background-color: green;
+    border: 10px;
+};
+
+#newMessageDiv {
+    color: ORANGE;
+    background-color: brown;
+    border: 10px;
+}
