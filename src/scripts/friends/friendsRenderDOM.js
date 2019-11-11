@@ -9,5 +9,14 @@ export default {
     renderAddFriendForm: () => {
         let newFriendForm = html.addFriendForm()
         document.querySelector("#addFriendDiv").innerHTML = newFriendForm
-    }
+    },
+
+    renderFriendList: (friends) => {
+        let friendList = ""
+        friends.forEach(friend => {
+            const friendHtml = html.friendItem(friend)
+            friendList += friendHtml
+        })
+        document.querySelector("#friendList").innerHTML = friendList
+    },
 }

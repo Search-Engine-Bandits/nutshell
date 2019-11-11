@@ -1,5 +1,5 @@
 import friendRenderDOM from "./friendsRenderDOM.js"
-
+import api from "./friendsData.js"
 
 export default {
     listenForAddFriend: () => {
@@ -20,16 +20,17 @@ export default {
 
                 if (userId && friendName) {
 
-            //         api.createFriendObject(friendObject)
-            //             .then(api.getAllFriends)
-            //             .then(response => renderTask.renderTaskList(response))
-            //     }
-            //     else {
-            //         window.alert("Please complete all fields!!!!")
-            //     }
+                    api.createFriendObject(friendObject)
+                        .then(api.getAllFriends)
+                        .then(response => friendRenderDOM.renderFriendList(response))
+                }
 
-            //     renderTask.renderNewTaskButton()
-            // }
+                else {
+                    window.alert("Please complete all fields!!!!")
+                }
+
+                friendRenderDOM.renderAddFriendButton()
+            }
         })
     },
 }
