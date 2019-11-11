@@ -5,37 +5,46 @@
 */
 
 
-
-
+// main
 import html from "./mainFactoryHTML.js"
+
+// tasks
 import renderTask from "./tasks/taskRenderDOM.js"
 import taskListener from "./tasks/taskEventListeners.js"
 import api from "./tasks/taskData.js"
+
+// friends
 import friendRenderDOM from "./friends/friendsRenderDOM.js"
 import friendListener from "./friends/friendsEventListeners"
 
-// adding initial HTML framework to the DOM
 
+// news
+import renderNews from "./news/newsRenderDOM"
+import newsListeners from "./news/newsEventListeners"
+
+
+// assign active user
 sessionStorage.setItem("activeUser", 1)
 
+// adding initial HTML framework to the DOM
 document.querySelector("#container").innerHTML = html.populateInitialView()
 
+// render and listen to tasks
 api.getAllTasks()
 .then(response => renderTask.renderTaskList(response))
-
-
 renderTask.renderNewTaskButton()
-
 taskListener.listenForNewTask()
-
 taskListener.listenForTaskComplete()
-
 taskListener.listenForTaskDelete()
-
 taskListener.listenForTaskEdit()
-
 taskListener.listenForTaskEditSubmit()
+
 
 friendRenderDOM.renderAddFriendButton()
 
 friendListener.listenForAddFriend()
+
+// render and listen to news
+renderNews.renderNewArticleButton()
+newsListeners.listenToNewArticleButton()
+
