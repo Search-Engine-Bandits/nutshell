@@ -20,7 +20,7 @@ export default {
     editMessageForm: (messageObject) => {
         return `
         <input type="hidden" id="messageTimestamp--${messageObject.id}" value="${messageObject.timestamp}">
-        <input type="text" id="messageText--${messageObject.id}" value="${messageObject.message}">
+        <input type="text" id="messageTextEdit--${messageObject.id}" value="${messageObject.message}">
         <button id="updateMessageButton--${messageObject.id}">Update</button>
         `
     },

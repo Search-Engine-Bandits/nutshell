@@ -20,7 +20,7 @@ export default {
 
     renderEditForm: (messageObject) => {
         let editItemForm = html.editMessageForm(messageObject)
-        document.querySelector(`#singleMessage--${messageObject.id}`).innerHTML = editItemForm
+        document.querySelector(`#messageText--${messageObject.id}`).innerHTML = editItemForm
     },
 
     renderFriendAddConfirmation: (messageObject) => {
