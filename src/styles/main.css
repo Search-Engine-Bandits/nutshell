@@ -17,3 +17,7 @@
     background-color: brown;
     border: 10px;
 }
+/* this is for testing the article container */
+#articleContainer {
+    border: 1px solid blue;
+}
