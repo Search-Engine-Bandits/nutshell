@@ -61,7 +61,7 @@ export default {
 
     listenForTaskDelete: () => {
         document.querySelector("#taskContainer").addEventListener("click", () => {
-            
+
             if (event.target.id.includes("deleteTask--")) {
 
                 const deletedTaskId = event.target.id.split("--")[1]
@@ -72,6 +72,51 @@ export default {
                     .then(() => api.getAllTasks())
                     .then(response => { renderTask.renderTaskList(response) }
                     )
+            }
+        })
+    },
+
+    listenForTaskEdit: () => {
+        document.querySelector("#taskContainer").addEventListener("click", () => {
+
+            if (event.target.id.includes("editTask--")) {
+                const editedTaskId = event.target.id.split("--")[1]
+                api.getSingleTask(editedTaskId)
+                    .then(response => renderTask.renderEditForm(response))
+            }
+        })
+    },
+
+    listenForTaskEditSubmit: () => {
+        document.querySelector("#taskContainer").addEventListener("click", () => {
+
+            if (event.target.id.includes("updateNewTaskButton--")) {
+                const editedTaskId = event.target.id.split("--")[1]
+                console.log(editedTaskId)
+
+                        const userId = parseInt(sessionStorage.getItem("activeUser"))
+                        const task = document.querySelector(`#taskName--${editedTaskId}`).value
+                        const compDate = document.querySelector(`#taskDate--${editedTaskId}`).value
+                        
+
+                        const taskObject = {
+                            id : editedTaskId,
+                            userId: userId,
+                            task: task,
+                            compDate: compDate,
+                            completed: false
+                        }
+
+                        if (userId && task && compDate) {
+
+                            api.completeTask(taskObject)
+                                .then(api.getAllTasks)
+                                .then(response => renderTask.renderTaskList(response))
+                        }
+                        else {
+                            window.alert("Please complete all fields!!!!")
+                        }
+                    
             }
         })
     }

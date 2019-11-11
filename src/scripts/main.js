@@ -31,4 +31,6 @@ taskListener.listenForTaskComplete()
 
 taskListener.listenForTaskDelete()
 
+taskListener.listenForTaskEdit()
 
+taskListener.listenForTaskEditSubmit()
