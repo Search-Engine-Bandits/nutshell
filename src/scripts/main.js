@@ -11,7 +11,8 @@ import html from "./mainFactoryHTML.js"
 import renderTask from "./tasks/taskRenderDOM.js"
 import taskListener from "./tasks/taskEventListeners.js"
 import api from "./tasks/taskData.js"
-
+import friendRenderDOM from "./friends/friendsRenderDOM.js"
+import friendListener from "./friends/friendsEventListeners"
 
 // adding initial HTML framework to the DOM
 
@@ -34,3 +35,7 @@ taskListener.listenForTaskDelete()
 taskListener.listenForTaskEdit()
 
 taskListener.listenForTaskEditSubmit()
+
+friendRenderDOM.renderAddFriendButton()
+
+friendListener.listenForAddFriend()
