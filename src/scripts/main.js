@@ -12,7 +12,7 @@ import renderTask from "./tasks/taskRenderDOM.js"
 import taskListener from "./tasks/taskEventListeners.js"
 import api from "./tasks/taskData.js"
 import renderEvent from "./events/eventRenderDOM.js"
-import eventListener from "./events/eventListeners.js"
+import eventListener from "./events/eventEventListeners.js"
 
 
 // adding initial HTML framework to the DOM
@@ -40,3 +40,5 @@ taskListener.listenForTaskEditSubmit()
 renderEvent.renderNewEventButton()
 
 eventListener.listenForNewEvent()
+
+// eventListener.submitNewEvent()
