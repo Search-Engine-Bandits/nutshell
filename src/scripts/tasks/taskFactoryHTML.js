@@ -17,7 +17,7 @@ export default {
 
     taskItem: (taskObject) => {
         return `
-       <div class="singleTask">
+       <div class="singleTask" id="singleTask--${taskObject.id}">
             <input type="checkbox" id="taskCheckbox--${taskObject.id}">
             <div class="taskName">${taskObject.task}</div>
             <div class="taskDate">Expected completion date: ${taskObject.compDate}</div>
@@ -25,6 +25,16 @@ export default {
             <button id="editTask--${taskObject.id}">Edit</button>
        </div>
        `
+    },
+
+    editTaskForm: (taskObject) => {
+        return `
+        <label>Task Name</label>
+        <input type="text" id="taskName--${taskObject.id}" placeholder="Enter Task Name" value="${taskObject.task}" required>
+        <label>Expected Completion Date</label>
+        <input type="date" id="taskDate--${taskObject.id}" value="${taskObject.compDate}"required>
+        <button id="updateNewTaskButton--${taskObject.id}">Update</button>
+        `
     }
 
 }

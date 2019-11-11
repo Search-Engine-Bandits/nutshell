@@ -22,5 +22,10 @@ export default {
             taskList += taskHtml
         })
         document.querySelector("#taskList").innerHTML = taskList
+    },
+
+    renderEditForm: (taskObject) => {
+        let editItemForm = html.editTaskForm(taskObject)
+        document.querySelector(`#singleTask--${taskObject.id}`).innerHTML = editItemForm
     }
 }
