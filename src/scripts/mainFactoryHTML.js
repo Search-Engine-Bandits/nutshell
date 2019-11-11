@@ -15,7 +15,10 @@ export default {
                     </div>
                 </article>
                 <article id="articleList"></article>
-                <article id="eventList"></article>
+                <article id="eventList">
+                    <div id="newEventDiv">
+                    </div>
+                </article>
             </div>
         </div>
             `
