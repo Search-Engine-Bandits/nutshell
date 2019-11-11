@@ -23,12 +23,12 @@ api.getAllTasks()
 .then(response => renderTask.renderTaskList(response))
 
 
-// renderTask.renderNewTaskButton()
+renderTask.renderNewTaskButton()
 
 taskListener.listenForNewTask()
 
 taskListener.listenForTaskComplete()
 
-
+taskListener.listenForTaskDelete()
 
 

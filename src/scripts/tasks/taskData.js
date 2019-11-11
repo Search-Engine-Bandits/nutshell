@@ -29,6 +29,14 @@ export default {
             body: JSON.stringify(taskObject)
         })
         .then(task => task.json())
+    },
+
+    deleteTask: (deletedTaskId) => {
+        console.log("taskId", deletedTaskId)
+        return fetch(`http://localhost:8088/tasks/${deletedTaskId}`, {
+            method: "DELETE",
+        })
+        .then(task => task.json())
     }
     
 }
