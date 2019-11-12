@@ -45,7 +45,7 @@ taskListener.listenForTaskEditSubmit()
 renderEvent.renderNewEventButton()
 
 eventListener.listenForNewEvent()
-
+eventListener.listenforDeleteEvent()
 
 
 // eventListener.submitNewEvent()

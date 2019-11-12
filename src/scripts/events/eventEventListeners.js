@@ -17,5 +17,16 @@ export default {
                 api.createSingleEvent(eventObject)
             }
         })
+    },
+    listenforDeleteEvent: () => {
+        document.getElementById("eventList").addEventListener("click", event => {
+            if (event.target.id.startsWith("deleteEvent--")) {
+                console.log("delete button clicked")
+                const eventToDelete = event.target.id.split("--")[1]
+                console.log("event to delete", eventToDelete)
+                api.deleteEvent(eventToDelete)
+                .then(api.allEvents)
+            }
+        })
     }
 }
