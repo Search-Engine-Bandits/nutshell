@@ -27,6 +27,7 @@ import friendListener from "./friends/friendsEventListeners"
 // news
 import renderNews from "./news/newsRenderDOM"
 import newsListeners from "./news/newsEventListeners"
+import newsApi from "./news/newsData.js"
 
 
 // assign active user
@@ -58,6 +59,8 @@ eventApi.allEvents()
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
+newsApi.getAllArticles()
+.then(response => renderNews.renderAllArticles(response))
 
 messageApi.getAllMessages()
 .then(response => renderMessage.renderMessageList(response))

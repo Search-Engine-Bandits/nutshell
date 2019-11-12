@@ -29,8 +29,12 @@ const newsHTML = {
         return /*html*/`
         <article id="article--${articleObject.id}">
             <h3>${articleObject.articleName}</h3>
+            <p>${articleObject.synopsis}</p>
+            <p>
+                <a href="${articleObject.articleUrl}" target="_blank">${articleObject.articleUrl}</a>
+            </p>
+            <button id="newsDelete--${articleObject.id}">Delete</button>
         </article>
-
         `
     }
 

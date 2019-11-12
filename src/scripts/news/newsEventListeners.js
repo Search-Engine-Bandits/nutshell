@@ -33,10 +33,10 @@ const newsListeners = {
                         "timestamp": timestamp
                     }
                     
-                    //POST new article to API
+                    //POST new article to API, then get and render
                     API.addNewArticle(newArticleObject)
                     .then(API.getAllArticles)
-                    .then(response => console.log(response))
+                    .then(response => renderNews.renderAllArticles(response))
                 }
                 else {
                     window.alert("Please complete all fields")
