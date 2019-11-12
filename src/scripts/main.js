@@ -15,9 +15,19 @@ import api from "./tasks/taskData.js"
 import renderEvent from "./events/eventRenderDOM.js"
 import eventListener from "./events/eventEventListeners.js"
 import eventApi from "./events/eventData.js"
+import renderMessage from "./messages/messageRenderDOM.js"
+import messageListener from "./messages/messageEventListeners.js"
+import messageApi from "./messages/messageData.js"
+
+// friends
+import friendRenderDOM from "./friends/friendsRenderDOM.js"
+import friendListener from "./friends/friendsEventListeners"
+
+
 // news
 import renderNews from "./news/newsRenderDOM"
 import newsListeners from "./news/newsEventListeners"
+
 
 // assign active user
 sessionStorage.setItem("activeUser", 1)
@@ -36,6 +46,7 @@ taskListener.listenForTaskDelete()
 taskListener.listenForTaskEdit()
 taskListener.listenForTaskEditSubmit()
 
+<<<<<<< HEAD
 // function call to put new event button on page
 renderEvent.renderNewEventButton()
 // function call for event listener on new event button
@@ -46,3 +57,24 @@ eventApi.allEvents()
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
+=======
+<<<<<<< HEAD
+messageApi.getAllMessages()
+.then(response => renderMessage.renderMessageList(response))
+.then(renderMessage.renderNewMessageForm)
+.then(messageListener.listenForNewMessage)
+.then(messageListener.listenForMessageEdit)
+.then(messageListener.listenForMessageEditSubmit)
+.then(messageListener.listenForMessageFriend)
+=======
+
+friendRenderDOM.renderAddFriendButton()
+
+friendListener.listenForAddFriend()
+
+>>>>>>> master
+// render and listen to news
+renderNews.renderNewArticleButton()
+newsListeners.listenToNewArticleButton()
+
+>>>>>>> master

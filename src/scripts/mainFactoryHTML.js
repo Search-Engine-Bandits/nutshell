@@ -5,7 +5,12 @@ export default {
         <header id="navBar"></header>
         <div id="domContainer">
             <div id="leftFrame">
-                <aside id="friendList"></aside>
+                <aside id="friendContainer">
+                    <div id="friendList">
+                    </div>
+                    <div id="addFriendDiv">
+                    </div>
+                </aside>
                 <aside id="messageList"></aside>
             </div>
             <div id="rightFrame">
