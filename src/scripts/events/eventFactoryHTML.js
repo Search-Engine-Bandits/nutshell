@@ -24,5 +24,16 @@ export default {
             date: date,
             location: location
         }
-    }
+    },
+    eventItem: (eventObject) => {
+        return `
+       <div class="singleEvent" id="singleEvent--${eventObject.id}">
+            <div class="eventName">${eventObject.name}</div>
+            <div class="eventDate">Date of event: ${eventObject.date}</div>
+            <div class="eventLocation">Location of event: ${eventObject.location}</div>
+            <button id="deleteEvent--${eventObject.id}">Delete</button>
+            <button id="editEvent--${eventObject.id}">Edit</button>
+       </div>
+       `
+    },
 }

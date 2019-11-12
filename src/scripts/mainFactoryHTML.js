@@ -1,6 +1,6 @@
 export default {
     populateInitialView: () => {
-        return `
+        return /*html*/`
         <header id="navBar"></header>
         <div id="domContainer">
             <div id="leftFrame">
@@ -9,15 +9,16 @@ export default {
             </div>
             <div id="rightFrame">
                 <article id="taskContainer">
-                    <div id="taskList">
-                    </div>
-                    <div id="newTaskDiv">
-                    </div>
+                    <div id="taskList"></div>
+                    <div id="newTaskDiv"></div>
                 </article>
-                <article id="articleList"></article>
+                <article id="articleContainer">
+                    <div id="articleListContainer"></div>
+                    <div id="newArticleButtonContainer"></div>
+                </article>
                 <article id="eventList">
-                    <div id="newEventDiv">
-                    </div>
+                    <div id="newEventDiv"></div>
+                    <div id="allEvents"></div>
                 </article>
             </div>
         </div>
