@@ -16,7 +16,7 @@ export default {
     },
 
     getSingleMessage: (messageId) => {
-        return fetch(`http://localhost:8088/messages/${messageId}`)
+        return fetch(`http://localhost:8088/messages/${messageId}?_expand=user`)
         .then(messages => messages.json())
     },
 

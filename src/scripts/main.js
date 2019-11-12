@@ -43,6 +43,7 @@ messageApi.getAllMessages()
 .then(messageListener.listenForMessageEdit)
 .then(messageListener.listenForMessageEditSubmit)
 .then(messageListener.listenForMessageFriend)
+.then(messageListener.listenForConfirmOrDenyFriend)
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()

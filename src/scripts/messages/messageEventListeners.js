@@ -51,27 +51,21 @@ export default {
 
             if (event.target.id.includes("updateMessageButton--")) {
                 const editMessageId = event.target.id.split("--")[1]
-                    console.log(editMessageId)
-                        const userId = parseInt(sessionStorage.getItem("activeUser"))
-                        const message = document.querySelector(`#messageTextEdit--${editMessageId}`).value
-                        const timestamp = document.querySelector(`#messageTimestamp--${editMessageId}`).value
-                        const messageId = parseInt(editMessageId)
+                const userId = parseInt(sessionStorage.getItem("activeUser"))
+                const message = document.querySelector(`#messageTextEdit--${editMessageId}`).value
+                const timestamp = document.querySelector(`#messageTimestamp--${editMessageId}`).value
+                const messageId = parseInt(editMessageId)
 
-                        const messageObject = {
-                            id : messageId,
-                            userId: userId,
-                            message: message,
-                            timestamp: timestamp
-                        }
+                const messageObject = {
+                    id : messageId,
+                    userId: userId,
+                    message: message,
+                    timestamp: timestamp
+                }
 
-                        console.log(messageObject)
-
-
-                        messageApi.editMessage(messageObject)
-                            .then(messageApi.getAllMessages)
-                            .then(response => renderMessage.renderMessageList(response))
-                    
-                    
+                messageApi.editMessage(messageObject)
+                    .then(messageApi.getAllMessages)
+                    .then(response => renderMessage.renderMessageList(response))
             }
         })
     },
@@ -79,15 +73,29 @@ export default {
     listenForMessageFriend: () => {
         document.querySelector("#messageList").addEventListener("click", () => {
             if (event.target.id.includes("messageUsername")) {
+                
                 const messageId = event.target.id.split("--")[1]
-                const friendId = event.target.className.split("--")[1]
-                console.log(friendId)
-                renderMessage.renderFriendAddConfirmation(messageId, friendId)
-
-
-                // need API post to friends and rerender
+                messageApi.getSingleMessage(messageId)
+                .then(messageObject => {
+                    console.log(messageObject)
+                    renderMessage.renderFriendAddConfirmation(messageObject)})
 
             }
         })
     },
+
+    listenForConfirmOrDenyFriend: () => {
+        document.querySelector("#messageList").addEventListener("click", () => {
+            if (event.target.id.includes("confirmFriendButton")) {
+//  need to add adam's function that adds a friend
+            console.log("say hello to my little friend")
+                    
+            } else {
+
+                console.log("say goodbye")
+                messageApi.getAllMessages()
+                .then(response => renderMessage.renderMessageList(response))
+            }
+        })
+    }
 }
