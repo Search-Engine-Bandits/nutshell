@@ -90,7 +90,7 @@ export default {
 //  need to add adam's function that adds a friend
             console.log("say hello to my little friend")
                     
-            } else {
+            } else if (event.target.id.includes("declineFriendButton")) {
 
                 console.log("say goodbye")
                 messageApi.getAllMessages()

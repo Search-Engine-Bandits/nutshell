@@ -16,9 +16,15 @@ import renderMessage from "./messages/messageRenderDOM.js"
 import messageListener from "./messages/messageEventListeners.js"
 import messageApi from "./messages/messageData.js"
 
+// friends
+import friendRenderDOM from "./friends/friendsRenderDOM.js"
+import friendListener from "./friends/friendsEventListeners"
+
+
 // news
 import renderNews from "./news/newsRenderDOM"
 import newsListeners from "./news/newsEventListeners"
+
 
 // assign active user
 sessionStorage.setItem("activeUser", 1)
@@ -36,6 +42,7 @@ taskListener.listenForTaskDelete()
 taskListener.listenForTaskEdit()
 taskListener.listenForTaskEditSubmit()
 
+
 messageApi.getAllMessages()
 .then(response => renderMessage.renderMessageList(response))
 .then(renderMessage.renderNewMessageForm)
@@ -44,6 +51,14 @@ messageApi.getAllMessages()
 .then(messageListener.listenForMessageEditSubmit)
 .then(messageListener.listenForMessageFriend)
 .then(messageListener.listenForConfirmOrDenyFriend)
+
+
+friendRenderDOM.renderAddFriendButton()
+
+friendListener.listenForAddFriend()
+
+
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
+

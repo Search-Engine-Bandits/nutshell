@@ -9,6 +9,13 @@ export default {
                     <article id="messageList"></article>
                     <article id="newMessageDiv"></article>
                 </aside>
+                <aside id="friendContainer">
+                    <div id="friendList">
+                    </div>
+                    <div id="addFriendDiv">
+                    </div>
+                </aside>
+                <aside id="messageList"></aside>
             </div>
             <div id="rightFrame">
                 <article id="taskContainer">
