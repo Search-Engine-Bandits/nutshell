@@ -27,6 +27,7 @@ import friendListener from "./friends/friendsEventListeners"
 // news
 import renderNews from "./news/newsRenderDOM"
 import newsListeners from "./news/newsEventListeners"
+import newsApi from "./news/newsData.js"
 
 
 // assign active user
@@ -46,6 +47,8 @@ taskListener.listenForTaskDelete()
 taskListener.listenForTaskEdit()
 taskListener.listenForTaskEditSubmit()
 
+
+// messages
 // function call to put new event button on page
 renderEvent.renderNewEventButton()
 // function call for event listener on new event button
@@ -64,6 +67,8 @@ eventApi.allEvents()
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
+newsApi.getAllArticles()
+.then(response => renderNews.renderAllArticles(response))
 
 messageApi.getAllMessages()
 .then(response => renderMessage.renderMessageList(response))
@@ -72,6 +77,8 @@ messageApi.getAllMessages()
 .then(messageListener.listenForMessageEdit)
 .then(messageListener.listenForMessageEditSubmit)
 .then(messageListener.listenForMessageFriend)
+
+// friends
 .then(messageListener.listenForConfirmOrDenyFriend)
 
 friendRenderDOM.renderAddFriendButton()
@@ -83,5 +90,4 @@ friendListener.listenForFriendDelete()
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
-
-
+newsListeners.listenToSaveArticleButton()
