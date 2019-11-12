@@ -1,10 +1,12 @@
 export default {
+    // html for new event button
     newEventButton: () => {
         return `
         <button id="newEventButton">New Event</button>
         `
     },
     newEventForm: () => {
+        // html for new event form
         return /*html*/`
         <h1>New Event</h1>
         <input type="hidden" id="hiddenEventId" value="">
@@ -17,6 +19,7 @@ export default {
         <button id="eventSubmitButton--">Enter Event</button>
         `
     },
+    // factory funtion to create event object
     eventFactoryFunction: (userId, name, date, location) => {
         return {
             userId: userId,
@@ -25,6 +28,7 @@ export default {
             location: location
         }
     },
+    // html for new event object to be passed to api
     eventItem: (eventObject) => {
         return `
        <div class="singleEvent" id="singleEvent--${eventObject.id}">

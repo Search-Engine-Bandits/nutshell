@@ -1,3 +1,4 @@
+// initial page load of containers for each section to avoid conflicts and assist with styling
 export default {
     populateInitialView: () => {
         return /*html*/`
@@ -10,7 +11,10 @@ export default {
                     <div id="addFriendDiv">
                     </div>
                 </aside>
-                <aside id="messageList"></aside>
+                <aside id="messageContainer">
+                    <article id="messageList"></article>
+                    <article id="newMessageDiv"></article>
+                </aside>
             </div>
             <div id="rightFrame">
                 <article id="taskContainer">
