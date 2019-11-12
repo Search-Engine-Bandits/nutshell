@@ -92,7 +92,6 @@ export default {
                 const userId = parseInt(sessionStorage.getItem("activeUser"))
                 let friendName = document.querySelector("#friendName").innerHTML
 
-
                 const friendObject = {
                     userId: userId,
                     friendName: friendName

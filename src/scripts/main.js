@@ -67,8 +67,10 @@ messageApi.getAllMessages()
 .then(messageListener.listenForConfirmOrDenyFriend)
 
 friendRenderDOM.renderAddFriendButton()
-
 friendListener.listenForAddFriend()
+friendListener.listenForFriendDelete()
+
+
 
 // render and listen to news
 renderNews.renderNewArticleButton()

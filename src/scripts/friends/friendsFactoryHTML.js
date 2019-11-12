@@ -18,7 +18,7 @@ export default {
         return `
        <div class="singleFriend" id="singleFriend--${friendObject.id}">
             <div class="friendName">${friendObject.friendName}</div>
-            <button id="deleteTask--${friendObject.id}">Delete Friend</button>
+            <button id="deleteFriend--${friendObject.id}">Delete Friend</button>
        </div>
        `
     },
