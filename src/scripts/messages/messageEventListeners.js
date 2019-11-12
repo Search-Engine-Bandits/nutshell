@@ -1,6 +1,7 @@
 import renderMessage from "./messageRenderDOM.js"
 import messageApi from "./messageData.js"
-import friendApi from "./friendsData.js"
+import friendApi from "../friends/friendsData.js"
+import friendRenderDOM from "../friends/friendsRenderDOM.js"
 
 
 export default {
@@ -78,9 +79,7 @@ export default {
                 const messageId = event.target.id.split("--")[1]
                 messageApi.getSingleMessage(messageId)
                 .then(messageObject => {
-                    console.log(messageObject)
                     renderMessage.renderFriendAddConfirmation(messageObject)})
-
             }
         })
     },
@@ -91,7 +90,7 @@ export default {
 //  need to add adam's function that adds a friend
 
                 const userId = parseInt(sessionStorage.getItem("activeUser"))
-                const friendName = document.querySelector("#friendName").value
+                let friendName = document.querySelector("#friendName").innerHTML
 
 
                 const friendObject = {
@@ -99,8 +98,10 @@ export default {
                     friendName: friendName
 }
                 friendApi.createFriendObject(friendObject)
-                .then(api.getAllFriends)
+                .then(friendApi.getAllFriends)
                 .then(response => friendRenderDOM.renderFriendList(response))
+                .then(messageApi.getAllMessages)
+                .then(response => renderMessage.renderMessageList(response))
                     
             } else if (event.target.id.includes("declineFriendButton")) {
 

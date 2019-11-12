@@ -28,7 +28,7 @@ export default {
     
     confirmFriend: (messageObject) => {
         return `
-        <p class="confirmFriend--${messageObject.userId}" id="confirmFriend--${messageObject.id}">Would you like to add ${messageObject.user.username} as a friend?"</p>
+        <p class="confirmFriend--${messageObject.userId}" id="confirmFriend--${messageObject.id}">Would you like to add <b id="friendName">${messageObject.user.username}</b> as a friend?"</p>
         <button id="confirmFriendButton--${messageObject.id}">Add Friend</button>
         <button id="declineFriendButton--${messageObject.id}">Changed My Mind</button>
         `
