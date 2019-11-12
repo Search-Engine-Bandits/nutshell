@@ -4,11 +4,21 @@ export default {
         <header id="navBar"></header>
         <div id="domContainer">
             <div id="leftFrame">
+<<<<<<< HEAD
                 <aside id="friendList"></aside>
                 <aside id="messageContainer">
                     <article id="messageList"></article>
                     <article id="newMessageDiv"></article>
                 </aside>
+=======
+                <aside id="friendContainer">
+                    <div id="friendList">
+                    </div>
+                    <div id="addFriendDiv">
+                    </div>
+                </aside>
+                <aside id="messageList"></aside>
+>>>>>>> master
             </div>
             <div id="rightFrame">
                 <article id="taskContainer">
