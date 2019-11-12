@@ -65,6 +65,11 @@ eventApi.allEvents()
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
 messageApi.getAllMessages()
 .then(response => renderMessage.renderMessageList(response))
 .then(renderMessage.renderNewMessageForm)
@@ -73,10 +78,18 @@ messageApi.getAllMessages()
 .then(messageListener.listenForMessageEditSubmit)
 .then(messageListener.listenForMessageFriend)
 
-friendRenderDOM.renderAddFriendButton()
 
+friendRenderDOM.renderAddFriendButton()
 friendListener.listenForAddFriend()
+friendListener.listenForFriendDelete()
+
+
 
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
