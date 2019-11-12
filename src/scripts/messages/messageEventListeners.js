@@ -1,5 +1,6 @@
 import renderMessage from "./messageRenderDOM.js"
 import messageApi from "./messageData.js"
+import friendApi from "./friendsData.js"
 
 
 export default {
@@ -88,7 +89,18 @@ export default {
         document.querySelector("#messageList").addEventListener("click", () => {
             if (event.target.id.includes("confirmFriendButton")) {
 //  need to add adam's function that adds a friend
-            console.log("say hello to my little friend")
+
+                const userId = parseInt(sessionStorage.getItem("activeUser"))
+                const friendName = document.querySelector("#friendName").value
+
+
+                const friendObject = {
+                    userId: userId,
+                    friendName: friendName
+}
+                friendApi.createFriendObject(friendObject)
+                .then(api.getAllFriends)
+                .then(response => friendRenderDOM.renderFriendList(response))
                     
             } else if (event.target.id.includes("declineFriendButton")) {
 
