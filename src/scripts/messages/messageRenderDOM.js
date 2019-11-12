@@ -24,7 +24,8 @@ export default {
     },
 
     renderFriendAddConfirmation: (messageObject) => {
-        let confirmFriendMessage = html.confirmFriend(friendId)
-        document.querySelector(`#singleMessage--${messageObject.id}`).innerHTML = confirmFriendMessage
+        let confirmFriendMessage = html.confirmFriend(messageObject)
+        const friendName = messageObject.user.username
+        document.querySelector(`#messageUsername--${messageObject.id}`).innerHTML = confirmFriendMessage
     }
 }

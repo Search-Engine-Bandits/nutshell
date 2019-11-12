@@ -12,9 +12,9 @@ export default {
                     </div>
                 </aside>
                 <aside id="messageContainer">
-                    <article id="messageList"></article>
-                    <article id="newMessageDiv"></article>
-                </aside>
+                <article id="messageList"></article>
+                <article id="newMessageDiv"></article>
+            </aside>
             </div>
             <div id="rightFrame">
                 <article id="taskContainer">

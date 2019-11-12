@@ -79,6 +79,8 @@ messageApi.getAllMessages()
 .then(messageListener.listenForMessageFriend)
 
 // friends
+.then(messageListener.listenForConfirmOrDenyFriend)
+
 friendRenderDOM.renderAddFriendButton()
 friendListener.listenForAddFriend()
 friendListener.listenForFriendDelete()
