@@ -39,10 +39,11 @@ taskListener.listenForTaskDelete()
 taskListener.listenForTaskEdit()
 taskListener.listenForTaskEditSubmit()
 
-
+// render and listen to friends
 friendRenderDOM.renderAddFriendButton()
-
 friendListener.listenForAddFriend()
+friendListener.listenForFriendDelete()
+
 
 // render and listen to news
 renderNews.renderNewArticleButton()
