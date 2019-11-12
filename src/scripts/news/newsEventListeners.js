@@ -10,8 +10,22 @@ const newsListeners = {
                 renderNews.renderNewArticleForm()
             }
         })
-    }
+    },
 
+    listenToSaveArticleButton: () => {
+        document.querySelector("#articleContainer").addEventListener("click", () => {
+            if (event.target.id === "saveArticleButton") {
+                const userId = parseInt(sessionStorage.getItem("activeUser"))
+                const articleName = document.querySelector("#newsTitle").value
+                const synopsis = document.querySelector("#newsSynopsis").value
+                const articleUrl = document.querySelector("#newsURL").value
+                const timestamp = Date.now()
+
+            }
+
+        })
+
+    }
 }
 
 export default newsListeners

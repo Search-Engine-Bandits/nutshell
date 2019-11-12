@@ -36,3 +36,4 @@ taskListener.listenForTaskEditSubmit()
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
+newsListeners.listenToSaveArticleButton()

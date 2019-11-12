@@ -9,7 +9,6 @@ const newsHTML = {
 
     createNewArticleForm: () => {
         return /*html*/`
-        <form>
         <label for="newsTitle">News Title: </label>
             <p>
                 <input type="text" name="newsTitle" id="newsTitle" placeholder="title" required>
@@ -22,7 +21,7 @@ const newsHTML = {
             <p>
                 <input type="text" name="newsURL" id="newsURL" placeholder="http://" required>
             </p>
-        <form>
+            <button id="saveArticleButton">Save</button>
         `
     }
 
