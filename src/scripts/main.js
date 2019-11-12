@@ -73,9 +73,11 @@ messageApi.getAllMessages()
 // friends
 friendRenderDOM.renderAddFriendButton()
 friendListener.listenForAddFriend()
+friendListener.listenForFriendDelete()
+
+
 
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
 newsListeners.listenToSaveArticleButton()
-
