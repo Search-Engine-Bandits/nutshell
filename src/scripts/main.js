@@ -46,7 +46,7 @@ taskListener.listenForTaskDelete()
 taskListener.listenForTaskEdit()
 taskListener.listenForTaskEditSubmit()
 
-<<<<<<< HEAD
+
 // function call to put new event button on page
 renderEvent.renderNewEventButton()
 // function call for event listener on new event button
@@ -57,8 +57,8 @@ eventApi.allEvents()
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
-=======
-<<<<<<< HEAD
+
+
 messageApi.getAllMessages()
 .then(response => renderMessage.renderMessageList(response))
 .then(renderMessage.renderNewMessageForm)
@@ -66,15 +66,16 @@ messageApi.getAllMessages()
 .then(messageListener.listenForMessageEdit)
 .then(messageListener.listenForMessageEditSubmit)
 .then(messageListener.listenForMessageFriend)
-=======
+
 
 friendRenderDOM.renderAddFriendButton()
-
 friendListener.listenForAddFriend()
+friendListener.listenForFriendDelete()
 
->>>>>>> master
+
+
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
 
->>>>>>> master
+
