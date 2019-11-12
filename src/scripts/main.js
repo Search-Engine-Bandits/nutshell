@@ -12,10 +12,19 @@ import html from "./mainFactoryHTML.js"
 import renderTask from "./tasks/taskRenderDOM.js"
 import taskListener from "./tasks/taskEventListeners.js"
 import api from "./tasks/taskData.js"
+import renderMessage from "./messages/messageRenderDOM.js"
+import messageListener from "./messages/messageEventListeners.js"
+import messageApi from "./messages/messageData.js"
+
+// friends
+import friendRenderDOM from "./friends/friendsRenderDOM.js"
+import friendListener from "./friends/friendsEventListeners"
+
 
 // news
 import renderNews from "./news/newsRenderDOM"
 import newsListeners from "./news/newsEventListeners"
+
 
 // assign active user
 sessionStorage.setItem("activeUser", 1)
@@ -32,6 +41,18 @@ taskListener.listenForTaskComplete()
 taskListener.listenForTaskDelete()
 taskListener.listenForTaskEdit()
 taskListener.listenForTaskEditSubmit()
+
+messageApi.getAllMessages()
+.then(response => renderMessage.renderMessageList(response))
+.then(renderMessage.renderNewMessageForm)
+.then(messageListener.listenForNewMessage)
+.then(messageListener.listenForMessageEdit)
+.then(messageListener.listenForMessageEditSubmit)
+.then(messageListener.listenForMessageFriend)
+
+friendRenderDOM.renderAddFriendButton()
+
+friendListener.listenForAddFriend()
 
 // render and listen to news
 renderNews.renderNewArticleButton()
