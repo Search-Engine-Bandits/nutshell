@@ -50,6 +50,14 @@ taskListener.listenForTaskEditSubmit()
 renderEvent.renderNewEventButton()
 // function call for event listener on new event button
 eventListener.listenForNewEvent()
+eventListener.listenforDeleteEvent()
+
+
+// eventListener.submitNewEvent()
+// render and listen to news
+renderNews.renderNewArticleButton()
+newsListeners.listenToNewArticleButton()
+eventApi.allEvents()
 // function call to populate dom with existing events
 eventApi.allEvents()
 
