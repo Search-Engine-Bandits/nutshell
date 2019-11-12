@@ -1,5 +1,7 @@
 import renderMessage from "./messageRenderDOM.js"
 import messageApi from "./messageData.js"
+import friendApi from "../friends/friendsData.js"
+import friendRenderDOM from "../friends/friendsRenderDOM.js"
 
 
 export default {
@@ -26,6 +28,7 @@ export default {
                     messageApi.createSingleMessage(messageObject)
                         .then(messageApi.getAllMessages)
                         .then(response => renderMessage.renderMessageList(response))
+                        .then(document.querySelector("#messageText").value = "")
                 }
                 else {
                     window.alert("Please complete all fields!!!!")
@@ -50,27 +53,21 @@ export default {
 
             if (event.target.id.includes("updateMessageButton--")) {
                 const editMessageId = event.target.id.split("--")[1]
-                    console.log(editMessageId)
-                        const userId = parseInt(sessionStorage.getItem("activeUser"))
-                        const message = document.querySelector(`#messageTextEdit--${editMessageId}`).value
-                        const timestamp = document.querySelector(`#messageTimestamp--${editMessageId}`).value
-                        const messageId = parseInt(editMessageId)
+                const userId = parseInt(sessionStorage.getItem("activeUser"))
+                const message = document.querySelector(`#messageTextEdit--${editMessageId}`).value
+                const timestamp = document.querySelector(`#messageTimestamp--${editMessageId}`).value
+                const messageId = parseInt(editMessageId)
 
-                        const messageObject = {
-                            id : messageId,
-                            userId: userId,
-                            message: message,
-                            timestamp: timestamp
-                        }
+                const messageObject = {
+                    id : messageId,
+                    userId: userId,
+                    message: message,
+                    timestamp: timestamp
+                }
 
-                        console.log(messageObject)
-
-
-                        messageApi.editMessage(messageObject)
-                            .then(messageApi.getAllMessages)
-                            .then(response => renderMessage.renderMessageList(response))
-                    
-                    
+                messageApi.editMessage(messageObject)
+                    .then(messageApi.getAllMessages)
+                    .then(response => renderMessage.renderMessageList(response))
             }
         })
     },
@@ -78,14 +75,39 @@ export default {
     listenForMessageFriend: () => {
         document.querySelector("#messageList").addEventListener("click", () => {
             if (event.target.id.includes("messageUsername")) {
-                const messageUser = event.target.id.split("--")[1]
-                const messageUsername = event.target.innerText
-                console.log(messageUsername)
-
-
-                // need API post to friends and rerender
-
+                
+                const messageId = event.target.id.split("--")[1]
+                messageApi.getSingleMessage(messageId)
+                .then(messageObject => {
+                    renderMessage.renderFriendAddConfirmation(messageObject)})
             }
         })
     },
+
+    listenForConfirmOrDenyFriend: () => {
+        document.querySelector("#messageList").addEventListener("click", () => {
+            if (event.target.id.includes("confirmFriendButton")) {
+//  need to add adam's function that adds a friend
+
+                const userId = parseInt(sessionStorage.getItem("activeUser"))
+                let friendName = document.querySelector("#friendName").innerHTML
+
+                const friendObject = {
+                    userId: userId,
+                    friendName: friendName
+}
+                friendApi.createFriendObject(friendObject)
+                .then(friendApi.getAllFriends)
+                .then(response => friendRenderDOM.renderFriendList(response))
+                .then(messageApi.getAllMessages)
+                .then(response => renderMessage.renderMessageList(response))
+                    
+            } else if (event.target.id.includes("declineFriendButton")) {
+
+                console.log("say goodbye")
+                messageApi.getAllMessages()
+                .then(response => renderMessage.renderMessageList(response))
+            }
+        })
+    }
 }

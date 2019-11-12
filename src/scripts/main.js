@@ -46,7 +46,6 @@ taskListener.listenForTaskDelete()
 taskListener.listenForTaskEdit()
 taskListener.listenForTaskEditSubmit()
 
-
 // function call to put new event button on page
 renderEvent.renderNewEventButton()
 // function call for event listener on new event button
@@ -73,7 +72,7 @@ messageApi.getAllMessages()
 .then(messageListener.listenForMessageEdit)
 .then(messageListener.listenForMessageEditSubmit)
 .then(messageListener.listenForMessageFriend)
-
+.then(messageListener.listenForConfirmOrDenyFriend)
 
 friendRenderDOM.renderAddFriendButton()
 friendListener.listenForAddFriend()
