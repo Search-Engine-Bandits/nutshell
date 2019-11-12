@@ -26,6 +26,7 @@ sessionStorage.setItem("activeUser", 1)
 document.querySelector("#container").innerHTML = html.populateInitialView()
 
 // render and listen to tasks
+
 api.getAllTasks()
 .then(response => renderTask.renderTaskList(response))
 renderTask.renderNewTaskButton()
@@ -35,14 +36,13 @@ taskListener.listenForTaskDelete()
 taskListener.listenForTaskEdit()
 taskListener.listenForTaskEditSubmit()
 
+// function call to put new event button on page
 renderEvent.renderNewEventButton()
-
+// function call for event listener on new event button
 eventListener.listenForNewEvent()
+// function call to populate dom with existing events
+eventApi.allEvents()
 
-
-
-// eventListener.submitNewEvent()
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
-eventApi.allEvents()

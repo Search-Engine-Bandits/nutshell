@@ -1,3 +1,4 @@
+// initial page load of containers for each section to avoid conflicts and assist with styling
 export default {
     populateInitialView: () => {
         return /*html*/`
