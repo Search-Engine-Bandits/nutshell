@@ -19,6 +19,14 @@ const renderNews = {
         const newFormEl = document.querySelector("#newArticleButtonContainer")
         const newForm = newsHtml.createNewArticleForm()
         newFormEl.innerHTML = newForm
+    },
+
+    renderAllArticles: (articleArray) => {
+        allArticlesHTML = ""
+        articleArray.forEach(article => {
+            const articleHtml = newsHtml.createArticleComponent(article)
+            allArticlesHTML += articleHtml
+        });
     }
 
 }

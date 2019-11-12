@@ -35,6 +35,8 @@ const newsListeners = {
                     
                     //POST new article to API
                     API.addNewArticle(newArticleObject)
+                    .then(API.getAllArticles)
+                    .then(response => console.log(response))
                 }
                 else {
                     window.alert("Please complete all fields")

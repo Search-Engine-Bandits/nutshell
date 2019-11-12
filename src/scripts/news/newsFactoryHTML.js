@@ -23,6 +23,15 @@ const newsHTML = {
             </p>
             <button id="saveArticleButton">Save</button>
         `
+    },
+
+    createArticleComponent: (articleObject) => {
+        return /*html*/`
+        <article id="article--${articleObject.id}">
+            <h3>${articleObject.articleName}</h3>
+        </article>
+
+        `
     }
 
 }

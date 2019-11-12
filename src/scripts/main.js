@@ -42,6 +42,7 @@ taskListener.listenForTaskDelete()
 taskListener.listenForTaskEdit()
 taskListener.listenForTaskEditSubmit()
 
+// messages
 messageApi.getAllMessages()
 .then(response => renderMessage.renderMessageList(response))
 .then(renderMessage.renderNewMessageForm)
@@ -50,8 +51,8 @@ messageApi.getAllMessages()
 .then(messageListener.listenForMessageEditSubmit)
 .then(messageListener.listenForMessageFriend)
 
+// friends
 friendRenderDOM.renderAddFriendButton()
-
 friendListener.listenForAddFriend()
 
 // render and listen to news
