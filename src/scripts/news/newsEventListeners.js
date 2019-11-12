@@ -1,6 +1,7 @@
 // The responsibility of this module is to listen for events that happen in the news article section of the DOM.
 
 import renderNews from "./newsRenderDOM"
+import API from "./newsData.js"
 
 const newsListeners = {
 
@@ -20,6 +21,24 @@ const newsListeners = {
                 const synopsis = document.querySelector("#newsSynopsis").value
                 const articleUrl = document.querySelector("#newsURL").value
                 const timestamp = Date.now()
+
+                if (userId && articleName && synopsis && articleUrl) {
+
+                    // new article object
+                    const newArticleObject = {
+                        "userId": userId,
+                        "articleName": articleName,
+                        "synpopsis": synopsis,
+                        "articleUrl": articleUrl,
+                        "timestamp": timestamp
+                    }
+                    
+                    //POST new article to API
+                    API.addNewArticle(newArticleObject)
+                }
+                else {
+                    window.alert("Please complete all fields")
+                }
 
             }
 
