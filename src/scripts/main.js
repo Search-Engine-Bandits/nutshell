@@ -15,9 +15,16 @@ import api from "./tasks/taskData.js"
 import renderEvent from "./events/eventRenderDOM.js"
 import eventListener from "./events/eventEventListeners.js"
 import eventApi from "./events/eventData.js"
+
+// friends
+import friendRenderDOM from "./friends/friendsRenderDOM.js"
+import friendListener from "./friends/friendsEventListeners"
+
+
 // news
 import renderNews from "./news/newsRenderDOM"
 import newsListeners from "./news/newsEventListeners"
+
 
 // assign active user
 sessionStorage.setItem("activeUser", 1)
@@ -46,3 +53,8 @@ eventListener.listenForNewEvent()
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
 eventApi.allEvents()
+
+friendRenderDOM.renderAddFriendButton()
+
+friendListener.listenForAddFriend()
+
