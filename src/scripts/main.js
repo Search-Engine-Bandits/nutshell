@@ -12,6 +12,9 @@ import html from "./mainFactoryHTML.js"
 import renderTask from "./tasks/taskRenderDOM.js"
 import taskListener from "./tasks/taskEventListeners.js"
 import api from "./tasks/taskData.js"
+import renderEvent from "./events/eventRenderDOM.js"
+import eventListener from "./events/eventEventListeners.js"
+import eventApi from "./events/eventData.js"
 import renderMessage from "./messages/messageRenderDOM.js"
 import messageListener from "./messages/messageEventListeners.js"
 import messageApi from "./messages/messageData.js"
@@ -33,6 +36,7 @@ sessionStorage.setItem("activeUser", 1)
 document.querySelector("#container").innerHTML = html.populateInitialView()
 
 // render and listen to tasks
+
 api.getAllTasks()
 .then(response => renderTask.renderTaskList(response))
 renderTask.renderNewTaskButton()
@@ -42,6 +46,18 @@ taskListener.listenForTaskDelete()
 taskListener.listenForTaskEdit()
 taskListener.listenForTaskEditSubmit()
 
+<<<<<<< HEAD
+// function call to put new event button on page
+renderEvent.renderNewEventButton()
+// function call for event listener on new event button
+eventListener.listenForNewEvent()
+// function call to populate dom with existing events
+eventApi.allEvents()
+
+// render and listen to news
+renderNews.renderNewArticleButton()
+newsListeners.listenToNewArticleButton()
+=======
 <<<<<<< HEAD
 messageApi.getAllMessages()
 .then(response => renderMessage.renderMessageList(response))
@@ -61,3 +77,4 @@ friendListener.listenForAddFriend()
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
 
+>>>>>>> master

@@ -1,8 +1,125 @@
 {
-    "users": [],
+    "users": [
+          {
+      "id": 1,
+      "username": "Sophia Hoffman",
+      "email": "sophiahoffman@google.com"
+    },
+    {
+      "id": 2,
+      "username": "Rob Hoffman",
+      "email": "robhoffman@google.com"
+    },
+    {
+      "id": 3,
+      "username": "Moet Hoffman",
+      "email": "moethoffman@google.com"
+    },
+    {
+      "id": 4,
+      "username": "Chandon Hoffman",
+      "email": "chandonhoffman@google.com"
+    }
+    ],
     "articles": [],
-    "messages": [],
+    "messages": [
+          {
+      "id": 1,
+      "userId": 1,
+      "message": "I can make it work",
+      "timestamp": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "message": "Noooo.... THIS is the coolest thing ever",
+      "timestamp": "2013-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "message": "I say, old chap; can we do this again?",
+      "timestamp": "2014-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "message": "Let's give em something to talk about",
+      "timestamp": "2016-04-23T18:25:43.511Z"
+    },
+    {
+      "userId": 1,
+      "message": "I love this!!!",
+      "timestamp": 1573502178009,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "message": "This is great",
+      "timestamp": 1573503225202,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "message": "hello hello hello",
+      "timestamp": 1573510304481,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "message": "I think this is awesome",
+      "timestamp": 1573510573473,
+      "id": 8
+    }
+    ],
     "events": [],
-    "tasks": [],
-    "friends": []
+    "tasks": [
+       {
+      "id": 1,
+      "userId": 1,
+      "task": "testing code",
+      "compDate": "2019-12-02",
+      "completed": false
+    },
+    {
+      "userId": "1",
+      "task": "testing code take 2",
+      "compDate": "2019-03-18",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "userId": "1",
+      "task": "testing code take 3",
+      "compDate": "2018-11-19",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "userId": "1",
+      "task": "testing code",
+      "compDate": "2019-11-13",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "userId": "1",
+      "task": "testing code",
+      "compDate": "2019-11-08",
+      "completed": false,
+      "id": 5
+    }
+    ],
+    "friends": [
+          {
+      "userId": 1,
+      "friendName": "happy happy",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "friendName": "john doe",
+      "id": 2
+    }
+    ]
 }
