@@ -28,7 +28,7 @@ const newsListeners = {
                     const newArticleObject = {
                         "userId": userId,
                         "articleName": articleName,
-                        "synpopsis": synopsis,
+                        "synopsis": synopsis,
                         "articleUrl": articleUrl,
                         "timestamp": timestamp
                     }
