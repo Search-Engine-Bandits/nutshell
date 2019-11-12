@@ -23,8 +23,8 @@ export default {
         document.querySelector(`#messageText--${messageObject.id}`).innerHTML = editItemForm
     },
 
-    renderFriendAddConfirmation: (messageObject) => {
+    renderFriendAddConfirmation: (messageId, friendId) => {
         let confirmFriendMessage = html.confirmFriend(friendId)
-        document.querySelector(`#singleMessage--${messageObject.id}`).innerHTML = confirmFriendMessage
+        document.querySelector(`#confirmFriend--${messageId}`).innerHTML = confirmFriendMessage
     }
 }

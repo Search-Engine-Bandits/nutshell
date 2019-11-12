@@ -10,7 +10,7 @@ export default {
     messageItem: (messageObject) => {
         return `
        <div class="singleMessage" id="singleMessage--${messageObject.id}">
-            <div id = "messageUsername">${messageObject.user.username}</div>
+            <div id = "messageUsername--${messageObject.id}">${messageObject.user.username}</div>
             <div id= "messageText--${messageObject.id}">${messageObject.message}</div>
             <button id="editMessage--${messageObject.id}">Edit</button>
        </div>
@@ -26,10 +26,11 @@ export default {
     },
 
     
-    confirmFriend: (friendId) => {
+    confirmFriend: () => {
         return `
-        // <input type="text" id="messageText--${messageObject.id}" placeholder="Enter Message Edits" value="${messageObject.message}" required>
+        <p class="confirmFriend--${messageObject.userId}" id="confirmFriend--${messageObject.id}">Would you like to add ${messageObject.user.username} as a friend?"</p>
         <button id="confirmFriendButton--${messageObject.id}">Update</button>
+        <button id="declineFriendButton--${messageObject.id}">Cancel</button>
         `
     }
 

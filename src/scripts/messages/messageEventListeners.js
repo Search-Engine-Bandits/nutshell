@@ -26,6 +26,7 @@ export default {
                     messageApi.createSingleMessage(messageObject)
                         .then(messageApi.getAllMessages)
                         .then(response => renderMessage.renderMessageList(response))
+                        .then(document.querySelector("#messageText").value = "")
                 }
                 else {
                     window.alert("Please complete all fields!!!!")
@@ -78,9 +79,10 @@ export default {
     listenForMessageFriend: () => {
         document.querySelector("#messageList").addEventListener("click", () => {
             if (event.target.id.includes("messageUsername")) {
-                const messageUser = event.target.id.split("--")[1]
-                const messageUsername = event.target.innerText
-                console.log(messageUsername)
+                const messageId = event.target.id.split("--")[1]
+                const friendId = event.target.className.split("--")[1]
+                console.log(friendId)
+                renderMessage.renderFriendAddConfirmation(messageId, friendId)
 
 
                 // need API post to friends and rerender
