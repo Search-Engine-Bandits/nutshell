@@ -2,7 +2,47 @@
     "users": [],
     "articles": [],
     "messages": [],
-    "events": [],
-    "tasks": [],
-    "friends": []
-}
+      "events": [
+    {
+      "userId": 1,
+      "name": "Class",
+      "date": "2019-11-12",
+      "location": "NSS",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "name": "demo day",
+      "date": "2019-11-12",
+      "location": "Lobby NSS",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "name": "merge conflict",
+      "date": "2019-11-11",
+      "location": "back table ",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "name": "test test",
+      "date": "2019-11-11",
+      "location": "here",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "name": "test test test",
+      "date": "2019-11-21",
+      "location": "over there",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "name": "stuff",
+      "date": "2019-11-06",
+      "location": "here there",
+      "id": 6
+    }
+  ]
