@@ -22,6 +22,39 @@ export default {
         return fetch(`http://localhost:8088/events/${eventId}`, {
             method: "DELETE"
         })
-        .then(response => response.json())
+            .then(response => response.json())
+    },
+    updateForm: (eventId) => {
+        const hiddenEventIdInput = document.getElementById("hiddenEventId")
+        const eventInput = document.getElementById("eventName--")
+        const dateInput = document.getElementById("eventDate--")
+        const locationInput = document.getElementById("eventLocation--")
+
+        fetch(`http://localhost:8088/events/${eventId}`)
+            .then(response => response.json())
+            .then(console.log("event", event))
+            .then(event => {
+                hiddenEventIdInput.value = event.id
+                eventInput.value = event.name
+                dateInput.value = event.date
+                locationInput.value = event.location
+            })
+    },
+    saveEvent: (eventId) => {
+        const updatedEventObject = {
+            name: document.getElementById("eventName--").value,
+            date: document.getElementById("eventDate--").value,
+            location: document.getElementById("eventLocation--").value
+        }
+
+        return fetch(`http://localhost:8088/events/${eventId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedEventObject)
+        })
+            .then(response => response.json())
     }
+
 }
