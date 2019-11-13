@@ -9,43 +9,56 @@ export default {
             }
             else if (event.target.id === "submitNewFriendButton") {
 
-                const userId = parseInt(sessionStorage.getItem("activeUser"))
-                const friendName = document.querySelector("#friendName").value
-               
+                const username = document.querySelector("#friendName").value
+                let currentUserId = parseInt(sessionStorage.getItem("activeUser"))
 
-                const friendObject = {
-                    userId: userId,
-                    friendName: friendName
-                }
+                api.getAllUsers(username)
+                    .then(response => {
+                        
+                        const userId = parseInt(response[0].id)
+                        
+                        const friendObject = {
+                            currentUserId: currentUserId,
+                            userId: userId
+                        }
 
-                if (userId && friendName) {
+                        
+                        return friendObject
 
-                    api.createFriendObject(friendObject)
-                        .then(api.getAllFriends)
-                        .then(response => friendRenderDOM.renderFriendList(response))
-                }
+                    })
+                    .then(response => {
 
-                else {
-                    window.alert("Please complete all fields!!!!")
-                }
+                        api.createFriendObject(response)
 
-                friendRenderDOM.renderAddFriendButton()
-            }
+                    })
+                    .then((response) => {
+                        currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+                        api.getAllFriends(currentUserId)})
+                    .then(response => friendRenderDOM.renderFriendList(response))
+                    
+    
+                
+
+            friendRenderDOM.renderAddFriendButton()
+
+           
+            
+        }
         })
-    },
+},
 
-    listenForFriendDelete: () => {
-        document.querySelector("#friendList").addEventListener("click", () => {
+listenForFriendDelete: () => {
+    document.querySelector("#friendList").addEventListener("click", () => {
 
-            if (event.target.id.includes("deleteFriend--")) {
+        if (event.target.id.includes("deleteFriend--")) {
 
-                const deletedFriendId = event.target.id.split("--")[1]
+            const deletedFriendId = event.target.id.split("--")[1]
 
-                api.deleteFriend(parseInt(deletedFriendId))
-                    .then(() => api.getAllFriends())
-                    .then(response => { friendRenderDOM.renderFriendList(response) }
-                    )
-            }
-        })
-    },
+            api.deleteFriend(parseInt(deletedFriendId))
+                .then(() => api.getAllFriends())
+                .then(response => { friendRenderDOM.renderFriendList(response) }
+                )
+        }
+    })
+},
 }

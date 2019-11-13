@@ -14,6 +14,7 @@ export default {
     renderFriendList: (friends) => {
         let friendList = ""
         friends.forEach(friend => {
+            console.log(friend)
             const friendHtml = html.friendItem(friend)
             friendList += friendHtml
         })
