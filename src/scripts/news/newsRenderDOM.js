@@ -3,10 +3,6 @@
 // imports
 import newsHtml from "./newsFactoryHTML"
 
-// targeting the articleList container, articleList container, and newButton containers
-const articleContainerEl = document.querySelector("#articleContainer")
-const articleListEl = document.querySelector("#articleListContainer")
-
 
 const renderNews = {
     renderNewArticleButton: () => {
@@ -19,6 +15,16 @@ const renderNews = {
         const newFormEl = document.querySelector("#newArticleButtonContainer")
         const newForm = newsHtml.createNewArticleForm()
         newFormEl.innerHTML = newForm
+    },
+
+    renderAllArticles: (articleArray) => {
+        let allArticlesHTML = ""
+        const articleListEl = document.querySelector("#articleListContainer")
+        articleArray.forEach(article => {
+            const articleHtml = newsHtml.createArticleComponent(article)
+            allArticlesHTML += articleHtml
+        })
+        articleListEl.innerHTML = allArticlesHTML
     }
 
 }

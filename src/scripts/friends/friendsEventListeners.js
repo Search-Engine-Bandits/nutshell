@@ -33,4 +33,19 @@ export default {
             }
         })
     },
+
+    listenForFriendDelete: () => {
+        document.querySelector("#friendList").addEventListener("click", () => {
+
+            if (event.target.id.includes("deleteFriend--")) {
+
+                const deletedFriendId = event.target.id.split("--")[1]
+
+                api.deleteFriend(parseInt(deletedFriendId))
+                    .then(() => api.getAllFriends())
+                    .then(response => { friendRenderDOM.renderFriendList(response) }
+                    )
+            }
+        })
+    },
 }

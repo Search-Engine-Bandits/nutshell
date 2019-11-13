@@ -17,5 +17,11 @@ export default {
             .then(parsedEntries => {
                 allEvents.eventToDom(parsedEntries)
             })
+    },
+    deleteEvent: (eventId) => {
+        return fetch(`http://localhost:8088/events/${eventId}`, {
+            method: "DELETE"
+        })
+        .then(response => response.json())
     }
 }
