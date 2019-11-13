@@ -21,8 +21,7 @@ export default {
                             currentUserId: currentUserId,
                             userId: userId
                         }
-
-
+                        
                         return friendObject
 
                     })
@@ -56,8 +55,13 @@ export default {
 
                 const deletedFriendId = event.target.id.split("--")[1]
 
+                let currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+
                 api.deleteFriend(parseInt(deletedFriendId))
-                    .then(() => api.getAllFriends())
+                    .then((response) => {
+                        currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+                        return api.getAllFriends(currentUserId)
+                    })
                     .then(response => { friendRenderDOM.renderFriendList(response) }
                     )
             }
