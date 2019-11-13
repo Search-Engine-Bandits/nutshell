@@ -9,27 +9,41 @@ export default {
             }
             else if (event.target.id === "submitNewFriendButton") {
 
-                const userId = parseInt(sessionStorage.getItem("activeUser"))
-                const friendName = document.querySelector("#friendName").value
-               
+                const username = document.querySelector("#friendName").value
+                let currentUserId = parseInt(sessionStorage.getItem("activeUser"))
 
-                const friendObject = {
-                    userId: userId,
-                    friendName: friendName
-                }
+                api.getAllUsers(username)
+                    .then(response => {
 
-                if (userId && friendName) {
+                        const userId = parseInt(response[0].id)
 
-                    api.createFriendObject(friendObject)
-                        .then(api.getAllFriends)
-                        .then(response => friendRenderDOM.renderFriendList(response))
-                }
+                        const friendObject = {
+                            currentUserId: currentUserId,
+                            userId: userId
+                        }
+                        
+                        return friendObject
 
-                else {
-                    window.alert("Please complete all fields!!!!")
-                }
+                    })
+                    .then(response => {
+
+                       return api.createFriendObject(response)
+
+                    })
+                    .then((response) => {
+                        currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+                        console.log((currentUserId))
+                        return api.getAllFriends(currentUserId)
+                    })
+                    .then(response => {
+                        console.log(response)
+                        friendRenderDOM.renderFriendList(response)
+                    })
 
                 friendRenderDOM.renderAddFriendButton()
+
+
+
             }
         })
     },
@@ -41,8 +55,13 @@ export default {
 
                 const deletedFriendId = event.target.id.split("--")[1]
 
+                let currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+
                 api.deleteFriend(parseInt(deletedFriendId))
-                    .then(() => api.getAllFriends())
+                    .then((response) => {
+                        currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+                        return api.getAllFriends(currentUserId)
+                    })
                     .then(response => { friendRenderDOM.renderFriendList(response) }
                     )
             }
