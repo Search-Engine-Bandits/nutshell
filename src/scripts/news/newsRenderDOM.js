@@ -21,7 +21,14 @@ const renderNews = {
         let allArticlesHTML = ""
         const articleListEl = document.querySelector("#articleListContainer")
         articleArray.forEach(article => {
-            const articleHtml = newsHtml.createArticleComponent(article)
+            // define loggedInUser
+            const loggedInUser = parseInt(sessionStorage.getItem("activeUser"))
+            let articleHtml = ""
+            // if my article, create article component
+            if (article.userId === loggedInUser) {
+                articleHtml = newsHtml.createArticleComponent(article)
+            }
+            // if friends article, create friends article component
             allArticlesHTML += articleHtml
         })
         articleListEl.innerHTML = allArticlesHTML

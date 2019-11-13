@@ -59,9 +59,6 @@ eventListener.listenForSaveEvent()
 
 
 // eventListener.submitNewEvent()
-// render and listen to news
-renderNews.renderNewArticleButton()
-newsListeners.listenToNewArticleButton()
 eventApi.allEvents()
 // function call to populate dom with existing events
 eventApi.allEvents()
@@ -69,8 +66,10 @@ eventApi.allEvents()
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
+// TESTING
 newsApi.getAllArticles()
 .then(response => renderNews.renderAllArticles(response))
+
 newsListeners.listenToDeleteNewsButton()
 newsListeners.listenToEditNewsButton()
 newsListeners.listenToUpdateNewsButton()
