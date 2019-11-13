@@ -19,6 +19,20 @@ export default {
         <button id="eventSubmitButton--">Enter Event</button>
         `
     },
+    editEventForm: () => {
+        // html for editing event form
+        return /*html*/`
+        <h1>Edit Event</h1>
+        <input type="hidden" id="hiddenEventId" value="">
+        <label for="eventName">Name of Event</label>
+        <input type="text" name="eventName" id="eventName--" required>
+        <label for="eventDate">Date of Event</label>
+        <input type="date" name="eventDate" id="eventDate--" required>
+        <label for="eventLocation">Event Location</label>
+        <input type="text" name="eventLocation" id="eventLocation--" required>
+        <button id="eventSaveEditButton--">Save Event Changes</button>
+        `
+    },
     // factory funtion to create event object
     eventFactoryFunction: (userId, name, date, location) => {
         return {

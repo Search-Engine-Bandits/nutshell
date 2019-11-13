@@ -37,6 +37,7 @@ const newsListeners = {
                     API.addNewArticle(newArticleObject)
                     .then(API.getAllArticles)
                     .then(response => renderNews.renderAllArticles(response))
+                    .then(renderNews.renderNewArticleButton)
                 }
                 else {
                     window.alert("Please complete all fields")
@@ -46,6 +47,63 @@ const newsListeners = {
 
         })
 
+    },
+
+    listenToDeleteNewsButton: () => {
+        document.querySelector("#articleContainer").addEventListener("click", () => {
+            if (event.target.id.startsWith("newsDelete--")) {
+                const deleteNewsId = event.target.id.split("--")[1]
+                API.deleteSingleArticle(deleteNewsId)
+                .then(API.getAllArticles)
+                .then(response => renderNews.renderAllArticles(response))
+            }
+        })
+    },
+
+    listenToEditNewsButton: () => {
+        document.querySelector("#articleContainer").addEventListener("click", () => {
+            if (event.target.id.startsWith("newsEdit--")) {
+                const editNewsId = event.target.id.split("--")[1]
+                API.getSingleArticle(editNewsId)
+                .then(response => {
+                    const selectedArticle = response
+                    renderNews.renderEditForm(selectedArticle)
+                })
+            }
+        })
+    },
+
+    listenToUpdateNewsButton: () => {
+        document.querySelector("#articleContainer").addEventListener("click", () => {
+            if (event.target.id.startsWith("updateArticle--")) {
+                const updateArticleId = event.target.id.split("--")[1]
+                const updatedName = document.querySelector("#newsTitle").value
+                const updatedSynopsis = document.querySelector("#newsSynopsis").value
+                const updatedUrl = document.querySelector("#newsURL").value
+
+                if (updatedName && updatedSynopsis && updatedUrl) {
+
+                    // get original article
+                    API.getSingleArticle(updateArticleId)
+                    .then(article => {
+                        // update the original article object to reflect updated values
+                        article.articleName = updatedName
+                        article.synopsis = updatedSynopsis
+                        article.articleUrl = updatedUrl
+                        
+                        // update API with new article
+                        API.updateSingleArticle(article)
+                        
+                        // get and render all articles
+                        .then(API.getAllArticles)
+                        .then(response => renderNews.renderAllArticles(response))
+                    })
+                }
+                else {
+                    window.alert("Please complete all fields")
+                }
+            }
+        })
     }
 }
 

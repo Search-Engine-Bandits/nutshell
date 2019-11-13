@@ -25,6 +25,12 @@ const renderNews = {
             allArticlesHTML += articleHtml
         })
         articleListEl.innerHTML = allArticlesHTML
+    },
+
+    renderEditForm: (articleObject) => {
+        const articleDiv = document.querySelector(`#article--${articleObject.id}`)
+        const populatedForm = newsHtml.editArticleForm(articleObject)
+        articleDiv.innerHTML = populatedForm
     }
 
 }

@@ -53,7 +53,9 @@ taskListener.listenForTaskEditSubmit()
 renderEvent.renderNewEventButton()
 // function call for event listener on new event button
 eventListener.listenForNewEvent()
-eventListener.listenforDeleteEvent()
+eventListener.listenForDeleteEvent()
+eventListener.listenForEditEvent()
+eventListener.listenForSaveEvent()
 
 
 // eventListener.submitNewEvent()
@@ -69,6 +71,9 @@ renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
 newsApi.getAllArticles()
 .then(response => renderNews.renderAllArticles(response))
+newsListeners.listenToDeleteNewsButton()
+newsListeners.listenToEditNewsButton()
+newsListeners.listenToUpdateNewsButton()
 
 messageApi.getAllMessages()
 .then(response => renderMessage.renderMessageList(response))
