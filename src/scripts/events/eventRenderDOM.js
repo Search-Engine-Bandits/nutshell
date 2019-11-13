@@ -18,5 +18,9 @@ export default {
             eventHTMLString += html.eventItem(event)
         })
         document.querySelector("#allEvents").innerHTML = eventHTMLString
+    },
+    editEventFormToDom: () => {
+        let editEventForm = html.editEventForm()
+        document.getElementById("newEventDiv").innerHTML = editEventForm
     }
 }

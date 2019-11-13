@@ -53,7 +53,9 @@ taskListener.listenForTaskEditSubmit()
 renderEvent.renderNewEventButton()
 // function call for event listener on new event button
 eventListener.listenForNewEvent()
-eventListener.listenforDeleteEvent()
+eventListener.listenForDeleteEvent()
+eventListener.listenForEditEvent()
+eventListener.listenForSaveEvent()
 
 
 // eventListener.submitNewEvent()
