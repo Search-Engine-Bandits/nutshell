@@ -42,6 +42,7 @@ export default {
     },
     saveEvent: (eventId) => {
         const updatedEventObject = {
+            userId: parseInt(sessionStorage.getItem("activeUser")),
             name: document.getElementById("eventName--").value,
             date: document.getElementById("eventDate--").value,
             location: document.getElementById("eventLocation--").value
