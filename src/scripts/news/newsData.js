@@ -4,6 +4,11 @@ const API = {
         .then(response => response.json())
     },
 
+    getSingleArticle: (articleId) => {
+        return fetch(`http://localhost:8088/articles/${articleId}`)
+        .then(response => response.json())
+    },
+
     addNewArticle: (articleObject) => {
         return fetch("http://localhost:8088/articles", {
             method: "POST",
@@ -19,6 +24,17 @@ const API = {
             method: "DELETE",
         })
         .then(response => response.json())
+    },
+
+    updateSingleArticle: (articleObject) => {
+        return fetch(`http://localhost:8088/articles/${articleObject.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(articleObject)
+        })
+        .then(article => article.json())
     }
 }
 
