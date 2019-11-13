@@ -22,7 +22,7 @@ import messageApi from "./messages/messageData.js"
 // friends
 import friendRenderDOM from "./friends/friendsRenderDOM.js"
 import friendListener from "./friends/friendsEventListeners"
-
+import friendsAPI from "./friends/friendsData"
 
 // news
 import renderNews from "./news/newsRenderDOM"
@@ -83,12 +83,17 @@ messageApi.getAllMessages()
 .then(messageListener.listenForMessageEditSubmit)
 .then(messageListener.listenForMessageFriend)
 
+
 // friends
 .then(messageListener.listenForConfirmOrDenyFriend)
 
+let currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+friendsAPI.getAllFriends(currentUserId)
+    .then(friendRenderDOM.renderFriendList)
 friendRenderDOM.renderAddFriendButton()
 friendListener.listenForAddFriend()
 friendListener.listenForFriendDelete()
+
 
 
 
