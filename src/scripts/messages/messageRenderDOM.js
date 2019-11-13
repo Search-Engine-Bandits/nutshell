@@ -1,5 +1,14 @@
 import html from "./messageFactoryHTML.js"
 
+
+
+
+function scrollToBottom(messageListContainer) {
+    messageListContainer.scrollTop = messageListContainer.scrollHeight;
+  }
+  
+
+
 export default {
 
     // object method for rendering the new message form to the DOM
@@ -10,12 +19,14 @@ export default {
     },
 
     renderMessageList: (messages) => {
+        const messageListContainer = document.querySelector("#messageList")
         let messageList = ""
         messages.forEach(message => {
             const messageHtml = html.messageItem(message)
             messageList += messageHtml
         })
         document.querySelector("#messageList").innerHTML = messageList
+        scrollToBottom(messageListContainer)
     },
 
     renderEditForm: (messageObject) => {

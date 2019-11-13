@@ -1,21 +1,20 @@
-#messageContainer {
-    color: Blue;
+
+#messageList {
+    color: red;
     background-color: aquamarine;
     border: 10px;
-    display: flex;
-    flex-direction: column;
-};
-
-#messageList{
-    color: red;
-    background-color: green;
-    border: 10px;
+    width: 250px;
+    height: 250px;
+    overflow:scroll;
 };
 
 #newMessageDiv {
     color: ORANGE;
     background-color: brown;
     border: 10px;
+    width: 250px;
+    height: 250px;
+
 }
 /* this is for testing the article container */
 #articleContainer {
