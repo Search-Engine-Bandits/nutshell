@@ -89,12 +89,12 @@ export default {
             if (event.target.id.includes("confirmFriendButton")) {
 //  need to add adam's function that adds a friend
 
-                const userId = parseInt(sessionStorage.getItem("activeUser"))
-                let friendName = document.querySelector("#friendName").innerHTML
+                const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+                let userId = parseInt(document.querySelector("#friendName").innerHTML)
 
                 const friendObject = {
-                    userId: userId,
-                    friendName: friendName
+                    currentUserId: currentUserId,
+                    userId: userId
 }
                 friendApi.createFriendObject(friendObject)
                 .then(friendApi.getAllFriends)
