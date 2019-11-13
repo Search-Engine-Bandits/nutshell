@@ -27,7 +27,7 @@ export default {
                     })
                     .then(response => {
 
-                        api.createFriendObject(response)
+                       return api.createFriendObject(response)
 
                     })
                     .then((response) => {
