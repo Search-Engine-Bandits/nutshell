@@ -9,7 +9,7 @@ export default {
     addFriendForm: () => {
         return `
         <label>Friend Name</label>
-        <input type="text" id="friendName" placeholder="Enter Friend Name" required>
+        <input type="text" id="friendName" placeholder="Enter Friend Username" required>
         <button id="submitNewFriendButton">Submit</button>
         `
     },
@@ -17,7 +17,7 @@ export default {
     friendItem: (friendObject) => {
         return `
        <div class="singleFriend" id="singleFriend--${friendObject.id}">
-            <div class="friendName">${friendObject.friendName}</div>
+            <div class="friendName">${friendObject.user.username}</div>
             <button id="deleteFriend--${friendObject.id}">Delete Friend</button>
        </div>
        `
