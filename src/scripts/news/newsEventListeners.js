@@ -37,6 +37,7 @@ const newsListeners = {
                     API.addNewArticle(newArticleObject)
                     .then(API.getAllArticles)
                     .then(response => renderNews.renderAllArticles(response))
+                    .then(renderNews.renderNewArticleButton)
                 }
                 else {
                     window.alert("Please complete all fields")
@@ -46,6 +47,17 @@ const newsListeners = {
 
         })
 
+    },
+
+    listenToDeleteNewsButton: () => {
+        document.querySelector("#articleContainer").addEventListener("click", () => {
+            if (event.target.id.startsWith("newsDelete--")) {
+                const deleteNewsId = event.target.id.split("--")[1]
+                API.deleteSingleArticle(deleteNewsId)
+                .then(API.getAllArticles)
+                .then(response => renderNews.renderAllArticles(response))
+            }
+        })
     }
 }
 

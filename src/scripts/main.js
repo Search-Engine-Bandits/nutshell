@@ -69,6 +69,7 @@ renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
 newsApi.getAllArticles()
 .then(response => renderNews.renderAllArticles(response))
+newsListeners.listenToDeleteNewsButton()
 
 messageApi.getAllMessages()
 .then(response => renderMessage.renderMessageList(response))
