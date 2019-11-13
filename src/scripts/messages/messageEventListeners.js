@@ -89,22 +89,38 @@ export default {
             if (event.target.id.includes("confirmFriendButton")) {
 //  need to add adam's function that adds a friend
 
-                const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
-                let userId = parseInt(document.querySelector("#friendName").innerHTML)
+                let currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+                let username = document.querySelector("#friendNameSearch").innerText
 
-                const friendObject = {
-                    currentUserId: currentUserId,
-                    userId: userId
-}
-                friendApi.createFriendObject(friendObject)
-                .then(friendApi.getAllFriends)
-                .then(response => friendRenderDOM.renderFriendList(response))
+                friendApi.getAllUsers(username)
+                    .then(response => {
+
+                        const userId = parseInt(response[0].id)
+
+                        const friendObject = {
+                            currentUserId: currentUserId,
+                            userId: userId
+                        }
+                        return friendObject
+
+                    })
+                    .then(response => {
+                       return friendApi.createFriendObject(response)
+
+                    })
+                    .then((response) => {
+                        currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+                        return friendApi.getAllFriends(currentUserId)
+                    })
+                    .then(response => {
+                        return friendRenderDOM.renderFriendList(response)
+                    })
+
+                // friendRenderDOM.renderAddFriendButton()
                 .then(messageApi.getAllMessages)
                 .then(response => renderMessage.renderMessageList(response))
                     
             } else if (event.target.id.includes("declineFriendButton")) {
-
-                console.log("say goodbye")
                 messageApi.getAllMessages()
                 .then(response => renderMessage.renderMessageList(response))
             }
