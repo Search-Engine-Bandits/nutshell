@@ -33,13 +33,11 @@ const renderNews = {
             friendsList.push(friend.userId)
         }))
         .then (() => {
-            console.log(friendsList)
             articleArray.forEach(article => {
                 let articleHtml = ""
                 // if my article, create article component
                 if (article.userId === loggedInUser) {
                     articleHtml = newsHtml.createArticleComponent(article)
-                    // console.log(articleHtml)
                 }
                 // if friends article, create friends article component
                 else if (friendsList.includes(article.userId)){
