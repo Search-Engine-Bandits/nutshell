@@ -34,7 +34,13 @@ export default {
             `
     },
 
-    populateAuthentication: () => {
+    
+    populateRegistration: () => {
+        return `
+        `
+    },
+
+    populateWelcome: () => {
         return `
         <div class="loginPage">
 
