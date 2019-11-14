@@ -2,14 +2,13 @@ import html from "./mainFactoryHTML.js"
 
 export default {
 
-listenForWelcome: () => {
-    document.querySelector("#welcomDiv").addEventListener("click", () => {
+    listenForWelcome: () => {
+        document.querySelector("#welcomeDiv").addEventListener("click", () => {
+console.log("working")
+            if (event.target.id.includes("welcomeRegisterButton")) {
 
-        if (event.target.id.includes("registerButton")) {
-            
-            document.querySelector("#container").innerHTML = html.populateRegistration()
-        }
+                document.querySelector("#container").innerHTML = html.populateRegistration()
+            }
+        })
     }
-
-    )}
 }

@@ -39,7 +39,7 @@ export default {
         return `
         <div id="welcomeDiv">
             <h1>Welcome to Nutshell! Please click below to register.</h1>
-            <button id="registerButton" type="submit">Register</button>
+            <button id="welcomeRegisterButton" type="submit">Register</button>
         <div>
         `
     },
