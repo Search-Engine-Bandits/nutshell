@@ -3,8 +3,7 @@
     color: red;
     background-color: aquamarine;
     border: 10px;
-    width: 250px;
-    height: 250px;
+   
     overflow:scroll;
 };
 
@@ -12,11 +11,25 @@
     color: ORANGE;
     background-color: brown;
     border: 10px;
-    width: 250px;
-    height: 250px;
+    
+    
 
 }
 /* this is for testing the article container */
 #articleContainer {
     border: 1px solid blue;
+}
+
+#domContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#leftFrame {
+    width: 30%;
+}
+
+#rightFrame {
+    width: 70%;
 }

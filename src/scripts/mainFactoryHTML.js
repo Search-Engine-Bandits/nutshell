@@ -34,6 +34,29 @@ export default {
             `
     },
 
+    populateAuthentication: () => {
+        return `
+        <div class="loginPage">
+
+            <p>Welcome to Nutshell! Please register below.</p>
+
+            <label for="uname"><b>Username (email address)</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+
+            <label for="pwd"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="pwd" required>
+
+            <label for="confirmpwd"><b>Confirm Password</b></label>
+            <input type="password" placeholder="Confirm Password" name="confirmpwd" required>
+
+            <button id="registerButton" type="submit">Register</button>
+
+
+
+        </div>
+`
+    }
+
 
 
 }

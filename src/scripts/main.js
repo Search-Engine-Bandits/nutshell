@@ -33,8 +33,10 @@ import newsApi from "./news/newsData.js"
 // assign active user
 sessionStorage.setItem("activeUser", 1)
 
+document.querySelector("#container").innerHTML = html.populateAuthentication()
+
 // adding initial HTML framework to the DOM
-document.querySelector("#container").innerHTML = html.populateInitialView()
+// document.querySelector("#container").innerHTML = html.populateInitialView()
 
 // render and listen to tasks
 
