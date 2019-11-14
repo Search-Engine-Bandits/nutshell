@@ -35,16 +35,20 @@ export default {
     },
 
     
-    populateRegistration: () => {
+    populateWelcome: () => {
         return `
+        <div id="welcomeDiv">
+            <h1>Welcome to Nutshell! Please click below to register.</h1>
+            <button id="registerButton" type="submit">Register</button>
+        <div>
         `
     },
 
-    populateWelcome: () => {
+    populateRegistration: () => {
         return `
         <div class="loginPage">
 
-            <p>Welcome to Nutshell! Please register below.</p>
+            <p>Please register below.</p>
 
             <label for="uname"><b>Username (email address)</b></label>
             <input type="text" placeholder="Enter Username" name="uname" required>
@@ -56,8 +60,6 @@ export default {
             <input type="password" placeholder="Confirm Password" name="confirmpwd" required>
 
             <button id="registerButton" type="submit">Register</button>
-
-
 
         </div>
 `
