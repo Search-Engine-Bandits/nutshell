@@ -9,7 +9,6 @@ export default {
             if (event.target.id.includes("newEventButton")) {
                 html.eventFormToDom()
             } else if (event.target.id.includes("eventSubmitButton--")) {
-                console.log("how many clicks?")
                 const userId = parseInt(sessionStorage.getItem("activeUser"))
                 const name = document.getElementById("eventName--").value
                 const date = document.getElementById("eventDate--").value
@@ -24,9 +23,7 @@ export default {
     listenForDeleteEvent: () => {
         document.getElementById("eventList").addEventListener("click", event => {
             if (event.target.id.startsWith("deleteEvent--")) {
-                console.log("delete button clicked")
                 const eventToDelete = event.target.id.split("--")[1]
-                console.log("event to delete", eventToDelete)
                 api.deleteEvent(eventToDelete)
                     .then(api.allEvents)
             }
@@ -35,9 +32,7 @@ export default {
     listenForEditEvent: () => {
         document.getElementById("eventList").addEventListener("click", event => {
             if (event.target.id.startsWith("editEvent--")) {
-                console.log("edit button clicked")
                 const eventIdToEdit = event.target.id.split("--")[1]
-                console.log("event id to edit", eventIdToEdit)
                 html.editEventFormToDom()
                 api.updateForm(eventIdToEdit)
             }

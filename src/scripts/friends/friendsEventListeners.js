@@ -32,11 +32,9 @@ export default {
                     })
                     .then((response) => {
                         currentUserId = parseInt(sessionStorage.getItem("activeUser"))
-                        console.log((currentUserId))
                         return api.getAllFriends(currentUserId)
                     })
                     .then(response => {
-                        console.log(response)
                         friendRenderDOM.renderFriendList(response)
                     })
 

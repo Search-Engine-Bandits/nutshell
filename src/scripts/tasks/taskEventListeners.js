@@ -66,7 +66,6 @@ export default {
 
                 const deletedTaskId = event.target.id.split("--")[1]
 
-                console.log(deletedTaskId)
 
                 api.deleteTask(parseInt(deletedTaskId))
                     .then(() => api.getAllTasks())
@@ -92,7 +91,6 @@ export default {
 
             if (event.target.id.includes("updateNewTaskButton--")) {
                 const editedTaskId = event.target.id.split("--")[1]
-                console.log(editedTaskId)
 
                         const userId = parseInt(sessionStorage.getItem("activeUser"))
                         const task = document.querySelector(`#taskName--${editedTaskId}`).value

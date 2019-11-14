@@ -21,7 +21,6 @@ export default {
     },
 
     editMessage: (messageObject) => {
-        console.log(messageObject)
         return fetch(`http://localhost:8088/messages/${messageObject.id}`, {
             method: "PUT",
             headers: {

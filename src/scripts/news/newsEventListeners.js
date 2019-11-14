@@ -15,7 +15,7 @@ const newsListeners = {
     },
 
     listenToSaveArticleButton: () => {
-        document.querySelector("#articleContainer").addEventListener("click", () => {
+        document.querySelector("#container").addEventListener("click", () => {
             if (event.target.id === "saveArticleButton") {
                 const userId = parseInt(sessionStorage.getItem("activeUser"))
                 const articleName = document.querySelector("#newsTitle").value

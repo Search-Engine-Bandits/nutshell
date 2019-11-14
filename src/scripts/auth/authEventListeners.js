@@ -1,5 +1,6 @@
 import html from "../mainFactoryHTML.js"
 import friendAPI from "../friends/friendsData.js"
+import dashboard from "../dashboard.js"
 
 
 export default {
@@ -29,7 +30,6 @@ export default {
                 friendAPI.getAllUsersByEmail(usernameInput)
                     .then(response => {
                         
-                        console.log(response)
 
                         if (!usernameInput || !passwordRegister || !passwordConfirm) {
                             window.alert("Please complete all fields!")
@@ -53,14 +53,10 @@ export default {
                                 })
                                 .then(usernameInput => friendAPI.getAllUsersByEmail(usernameInput))
                                 .then(response => sessionStorage.setItem("activeUser", response[0].id))
+                                .then(dashboard.listenAndRenderDashboard())
                         }
                         
                     })
-                  
-                   
-                
-
-                // document.querySelector("#container").innerHTML = html.populateInitialView()
                 }
     })}
 }
