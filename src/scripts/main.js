@@ -56,13 +56,15 @@ eventListener.listenForNewEvent()
 eventListener.listenForDeleteEvent()
 eventListener.listenForEditEvent()
 eventListener.listenForSaveEvent()
+// fetch call for all friends and events
+eventApi.friendsAndEvents()
 
 
 // eventListener.submitNewEvent()
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
-eventApi.allEvents()
+
 // function call to populate dom with existing events
 eventApi.allEvents()
 

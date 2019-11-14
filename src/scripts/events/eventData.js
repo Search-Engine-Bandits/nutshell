@@ -56,6 +56,16 @@ export default {
             body: JSON.stringify(updatedEventObject)
         })
             .then(response => response.json())
-    }
+    },
 
-}
+    friendsAndEvents: () => {
+        return fetch("http://localhost:8088/users?_embed=friends&_embed=events&_sort=date&_order=asc")
+            .then(entries => entries.json())
+            .then(parsedEntries => {
+                allEvents.friendEventToDom(parsedEntries)
+            })
+        },
+        
+        
+    }
+    // console.log("parsed entries", parsedEntries[2].friends[0].currentUserId)

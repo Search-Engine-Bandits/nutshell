@@ -20,3 +20,8 @@
 #articleContainer {
     border: 1px solid blue;
 }
+.singleEvent:first-child {
+    background-color: aqua;
+    font-weight: bold;
+    font-size: 120%;
+}
