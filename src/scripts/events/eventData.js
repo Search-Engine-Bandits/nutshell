@@ -32,7 +32,6 @@ export default {
 
         fetch(`http://localhost:8088/events/${eventId}`)
             .then(response => response.json())
-            .then(console.log("event", event))
             .then(event => {
                 hiddenEventIdInput.value = event.id
                 eventInput.value = event.name
@@ -68,4 +67,3 @@ export default {
         
         
     }
-    // console.log("parsed entries", parsedEntries[2].friends[0].currentUserId)

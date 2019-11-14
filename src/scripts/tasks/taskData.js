@@ -32,7 +32,6 @@ export default {
     },
 
     deleteTask: (deletedTaskId) => {
-        console.log("taskId", deletedTaskId)
         return fetch(`http://localhost:8088/tasks/${deletedTaskId}`, {
             method: "DELETE",
         })

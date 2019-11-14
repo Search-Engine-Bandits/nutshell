@@ -25,11 +25,8 @@ export default {
     friendEventToDom: (eventArray) => {
         let friendEventHTML = ""
         eventArray.forEach(event => {
-            console.log("event in friendEventToDom", event.events)
             if (event.friends.length > 0) {
-                console.log("events after if", event.events)
                 event.events.forEach(eventTwo => {
-                    console.log("eventTwo", eventTwo)
                     friendEventHTML += html.friendEventItem(eventTwo)
                 })
             }
