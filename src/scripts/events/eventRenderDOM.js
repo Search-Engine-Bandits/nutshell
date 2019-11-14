@@ -1,4 +1,5 @@
 import html from "./eventFactoryHTML.js"
+const currentUser = parseInt(sessionStorage.getItem("activeUser"))
 export default {
 
     // object method for rendering the event button to the DOM
@@ -15,9 +16,25 @@ export default {
     eventToDom: (eventArray) => {
         let eventHTMLString = ""
         eventArray.forEach(event => {
-            eventHTMLString += html.eventItem(event)
+            if (currentUser === event.userId) {
+                eventHTMLString += html.eventItem(event)
+            }
         })
-        document.querySelector("#allEvents").innerHTML = eventHTMLString
+        document.querySelector("#myEvents").innerHTML = eventHTMLString
+    },
+    friendEventToDom: (eventArray) => {
+        let friendEventHTML = ""
+        eventArray.forEach(event => {
+            console.log("event in friendEventToDom", event.events)
+            if (event.friends.length > 0) {
+                console.log("events after if", event.events)
+                event.events.forEach(eventTwo => {
+                    console.log("eventTwo", eventTwo)
+                    friendEventHTML += html.friendEventItem(eventTwo)
+                })
+            }
+        })
+        document.getElementById("friendEvents").innerHTML = friendEventHTML
     },
     editEventFormToDom: () => {
         let editEventForm = html.editEventForm()
