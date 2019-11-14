@@ -2,6 +2,7 @@
 
 // imports
 import newsHtml from "./newsFactoryHTML"
+import friendsAPI from "../friends/friendsData.js"
 
 
 const renderNews = {
@@ -20,18 +21,38 @@ const renderNews = {
     renderAllArticles: (articleArray) => {
         let allArticlesHTML = ""
         const articleListEl = document.querySelector("#articleListContainer")
-        articleArray.forEach(article => {
-            // define loggedInUser
-            const loggedInUser = parseInt(sessionStorage.getItem("activeUser"))
-            let articleHtml = ""
-            // if my article, create article component
-            if (article.userId === loggedInUser) {
-                articleHtml = newsHtml.createArticleComponent(article)
-            }
-            // if friends article, create friends article component
-            allArticlesHTML += articleHtml
-        })
+
+        // define loggedInUser
+        const loggedInUser = parseInt(sessionStorage.getItem("activeUser"))
+
+        // get friends of logged-in user
+        const friendsList = []
+        friendsAPI.getAllFriends(loggedInUser)
+        .then(response => response.forEach(friend => {
+            // push friend's userId to the friendsList
+            friendsList.push(friend.userId)
+        }))
+        .then (() => {
+            console.log(friendsList)
+            articleArray.forEach(article => {
+                let articleHtml = ""
+                // if my article, create article component
+                if (article.userId === loggedInUser) {
+                    articleHtml = newsHtml.createArticleComponent(article)
+                }
+                // if friends article, create friends article component
+                else if (friendsList.includes(article.userId)){
+                    console.log(article)
+                }
+    
+                allArticlesHTML += articleHtml
+            })
+        }
+        )
+
+        // render articles to the DOM
         articleListEl.innerHTML = allArticlesHTML
+
     },
 
     renderEditForm: (articleObject) => {
