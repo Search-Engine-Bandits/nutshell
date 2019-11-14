@@ -87,39 +87,50 @@ export default {
     listenForConfirmOrDenyFriend: () => {
         document.querySelector("#messageList").addEventListener("click", () => {
             if (event.target.id.includes("confirmFriendButton")) {
-//  need to add adam's function that adds a friend
 
-                let currentUserId = parseInt(sessionStorage.getItem("activeUser"))
-                let username = document.querySelector("#friendNameSearch").innerText
+                // Check to ensure that same friend is not added twice
+                let loggedInUserId = parseInt(sessionStorage.getItem("activeUser"))
+                const potentialFriend = document.querySelector("#friendNameSearch").innerText
+                let potentialFriendId
 
-                friendApi.getAllUsers(username)
-                    .then(response => {
 
-                        const userId = parseInt(response[0].id)
+                // pulls the potentialFriedId from an API call and populates the variable declared above
+                friendApi.getAllUsers(potentialFriend)
+                .then(response => {
+                    potentialFriendId = parseInt(response[0].id)
+                    return loggedInUserId
+                })
 
+                // uses filter to compare user.username of loggedInUser's friends array and compares it to the text criteria from user selected potentialFriend
+                .then(response => friendApi.getAllFriends(response))
+                .then(r => {
+                    const comparePotentialFriendToUsername = r.filter(r => (r.user.username===potentialFriend ))
+        // If potentialFriendId is the same as loggedInUserId then it will inform user that they are unable to friend themself
+                    if (potentialFriendId===loggedInUserId) {
+                        window.alert("You cannot friend yourself")
+                    
+        // If potentialFriend is the same as user.username then it will inform user that they are unable to friend someone they're already friends with
+
+                    } else if  (comparePotentialFriendToUsername.length > 0) {
+                        window.alert(`You are already friends with ${potentialFriend}`)
+                    // else it will take the values for loggedInUserId and potentialFriendId and create and object that will be put into the friends array
+                    } else {
                         const friendObject = {
-                            currentUserId: currentUserId,
-                            userId: userId
+                            currentUserId: loggedInUserId,
+                            userId: potentialFriendId
                         }
-                        return friendObject
-
-                    })
-                    .then(response => {
-                       return friendApi.createFriendObject(response)
-
-                    })
-                    .then((response) => {
-                        currentUserId = parseInt(sessionStorage.getItem("activeUser"))
-                        return friendApi.getAllFriends(currentUserId)
-                    })
-                    .then(response => {
-                        return friendRenderDOM.renderFriendList(response)
-                    })
+                        return friendApi.createFriendObject(friendObject)
+                    }
+                })
+                .then(() => {
+                    return loggedInUserId
+                })
+                .then(response => friendApi.getAllFriends(response))
+                .then(response => friendRenderDOM.renderFriendList(response))
 
                 // friendRenderDOM.renderAddFriendButton()
                 .then(messageApi.getAllMessages)
                 .then(response => renderMessage.renderMessageList(response))
-                    
             } else if (event.target.id.includes("declineFriendButton")) {
                 messageApi.getAllMessages()
                 .then(response => renderMessage.renderMessageList(response))

@@ -22,12 +22,16 @@ export default {
                     <div id="newTaskDiv"></div>
                 </article>
                 <article id="articleContainer">
+                    <h2>News Articles</h2>
                     <div id="articleListContainer"></div>
                     <div id="newArticleButtonContainer"></div>
                 </article>
                 <article id="eventList">
                     <div id="newEventDiv"></div>
-                    <div id="allEvents"></div>
+                    <div id="allEvents">
+                        <div id="myEvents"></div>
+                        <div id="friendEvents"></div>
+                    </div>
                 </article>
             </div>
         </div>

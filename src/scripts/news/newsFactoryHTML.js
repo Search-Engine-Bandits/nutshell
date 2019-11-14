@@ -27,7 +27,7 @@ const newsHTML = {
 
     createArticleComponent: (articleObject) => {
         return /*html*/`
-        <article id="article--${articleObject.id}">
+        <article id="article--${articleObject.id}" class="selfArticle">
             <h3>${articleObject.articleName}</h3>
             <p>${articleObject.synopsis}</p>
             <p>
@@ -35,6 +35,18 @@ const newsHTML = {
             </p>
             <button id="newsEdit--${articleObject.id}">Edit</button>
             <button id="newsDelete--${articleObject.id}">Delete</button>
+        </article>
+        `
+    },
+
+    createFriendArticleComponent: (articleObject) => {
+        return /*html*/`
+        <article id="article--${articleObject.id}" class="friendArticle">
+            <h3>${articleObject.articleName}</h3>
+            <p>${articleObject.synopsis}</p>
+            <p>
+                <a href="${articleObject.articleUrl}" target="_blank">${articleObject.articleUrl}</a>
+            </p>
         </article>
         `
     },
