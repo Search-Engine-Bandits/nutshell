@@ -1,4 +1,4 @@
-import html from "./mainFactoryHTML.js"
+import html from "../mainFactoryHTML.js"
 
 export default {
 

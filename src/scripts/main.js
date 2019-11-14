@@ -6,8 +6,8 @@
 
 
 // main
-import html from "mainFactoryHTML.js"
-import welcome from "./auth/eventListeners"
+import html from "./mainFactoryHTML.js"
+import welcome from "./auth/eventListeners.js"
 // // tasks
 // import renderTask from "./tasks/taskRenderDOM.js"
 // import taskListener from "./tasks/taskEventListeners.js"
