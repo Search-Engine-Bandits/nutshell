@@ -28,7 +28,10 @@ export default {
                 </article>
                 <article id="eventList">
                     <div id="newEventDiv"></div>
-                    <div id="allEvents"></div>
+                    <div id="allEvents">
+                        <div id="myEvents"></div>
+                        <div id="friendEvents"></div>
+                    </div>
                 </article>
             </div>
         </div>
