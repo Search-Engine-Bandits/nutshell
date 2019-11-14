@@ -31,7 +31,7 @@ import welcome from "./auth/eventListeners.js"
 
 
 // assign active user
-sessionStorage.setItem("activeUser", 1)
+// sessionStorage.setItem("activeUser", 1)
 
 document.querySelector("#container").innerHTML = html.populateWelcome()
 welcome.listenForWelcome()

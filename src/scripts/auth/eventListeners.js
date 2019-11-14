@@ -45,15 +45,20 @@ export default {
                                 username: username,
                                 email: usernameInput
                             }
-                            console.log(userObject)
-                            return userObject
-
-
+                           
+                            
+                            friendAPI.createUserObject(userObject)
+                                .then(() => {
+                                    return usernameInput
+                                })
+                                .then(usernameInput => friendAPI.getAllUsersByEmail(usernameInput))
+                                .then(response => sessionStorage.setItem("activeUser", response[0].id))
                         }
                         
                     })
-
-                    .then()
+                  
+                   
+                
 
                 // document.querySelector("#container").innerHTML = html.populateInitialView()
                 }

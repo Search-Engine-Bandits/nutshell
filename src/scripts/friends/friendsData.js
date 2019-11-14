@@ -30,6 +30,16 @@ export default {
     getAllUsersByEmail: (email) => {
         return fetch(`http://localhost:8088/users?email=${email}`)
         .then(users => users.json())
+    },
+
+    createUserObject: (userObject) => {
+        return fetch("http://localhost:8088/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userObject)
+        })
     }
 
 }
