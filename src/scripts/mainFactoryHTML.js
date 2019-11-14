@@ -22,6 +22,7 @@ export default {
                     <div id="newTaskDiv"></div>
                 </article>
                 <article id="articleContainer">
+                    <h2>News Articles</h2>
                     <div id="articleListContainer"></div>
                     <div id="newArticleButtonContainer"></div>
                 </article>

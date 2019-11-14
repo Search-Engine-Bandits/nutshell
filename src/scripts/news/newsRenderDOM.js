@@ -39,19 +39,22 @@ const renderNews = {
                 // if my article, create article component
                 if (article.userId === loggedInUser) {
                     articleHtml = newsHtml.createArticleComponent(article)
+                    // console.log(articleHtml)
                 }
                 // if friends article, create friends article component
                 else if (friendsList.includes(article.userId)){
-                    console.log(article)
+                    articleHtml = newsHtml.createFriendArticleComponent(article)
                 }
-    
+
                 allArticlesHTML += articleHtml
+    
+
             })
+            // render articles to the DOM
+            articleListEl.innerHTML = allArticlesHTML
         }
         )
 
-        // render articles to the DOM
-        articleListEl.innerHTML = allArticlesHTML
 
     },
 
