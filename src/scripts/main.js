@@ -35,6 +35,7 @@ sessionStorage.setItem("activeUser", 1)
 
 document.querySelector("#container").innerHTML = html.populateWelcome()
 welcome.listenForWelcome()
+welcome.listenForRegister()
 
 // // adding initial HTML framework to the DOM
 // document.querySelector("#container").innerHTML = html.populateInitialView()

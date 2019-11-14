@@ -25,6 +25,11 @@ export default {
     getAllUsers: (username) => {
         return fetch(`http://localhost:8088/users?username=${username}`)
         .then(users => users.json())
+    },
+
+    getAllUsersByEmail: (email) => {
+        return fetch(`http://localhost:8088/users?email=${email}`)
+        .then(users => users.json())
     }
 
 }

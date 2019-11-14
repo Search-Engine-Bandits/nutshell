@@ -46,18 +46,18 @@ export default {
 
     populateRegistration: () => {
         return `
-        <div class="loginPage">
+        <div id="loginPage">
 
             <p>Please register below.</p>
 
             <label for="uname"><b>Username (email address)</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
+            <input id="usernameInput" type="email" placeholder="Enter Username" name="uname" required>
 
             <label for="pwd"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="pwd" required>
+            <input id="passwordRegister" type="password" placeholder="Enter Password" name="pwd" required>
 
             <label for="confirmpwd"><b>Confirm Password</b></label>
-            <input type="password" placeholder="Confirm Password" name="confirmpwd" required>
+            <input id="passwordConfirm" type="password" placeholder="Confirm Password" name="confirmpwd" required>
 
             <button id="registerButton" type="submit">Register</button>
 
