@@ -3,6 +3,7 @@
 import renderNews from "./newsRenderDOM"
 import API from "./newsData.js"
 
+
 const newsListeners = {
 
     listenToNewArticleButton: () => {

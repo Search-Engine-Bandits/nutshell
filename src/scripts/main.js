@@ -71,8 +71,10 @@ eventApi.allEvents()
 // render and listen to news
 renderNews.renderNewArticleButton()
 newsListeners.listenToNewArticleButton()
+// TESTING
 newsApi.getAllArticles()
 .then(response => renderNews.renderAllArticles(response))
+
 newsListeners.listenToDeleteNewsButton()
 newsListeners.listenToEditNewsButton()
 newsListeners.listenToUpdateNewsButton()

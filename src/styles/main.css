@@ -1,4 +1,5 @@
 
+/* messages */
 #messageList {
     color: red;
     background-color: aquamarine;
@@ -16,10 +17,18 @@
     height: 250px;
 
 }
-/* this is for testing the article container */
+
+/* news articles */
 #articleContainer {
     border: 1px solid blue;
 }
+
+.friendArticle {
+    font-style: italic;
+    background-color: cornsilk;
+}
+
+/* Events */
 .singleEvent:first-child {
     background-color: aqua;
     font-weight: bold;
