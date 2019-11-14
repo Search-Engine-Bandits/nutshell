@@ -92,6 +92,7 @@ export default {
                 let loggedInUserId = parseInt(sessionStorage.getItem("activeUser"))
                 const potentialFriend = document.querySelector("#friendNameSearch").innerText
                 let potentialFriendId
+                let friendObject = {}
 
                 // pulls the potentialFriedId from an API call and populates the variable declared above
                 friendApi.getAllUsers(potentialFriend)
@@ -101,7 +102,7 @@ export default {
                 })
 
                 // uses filter to compare user.username of loggedInUser's friends array and compares it to the text criteria from user selected potentialFriend
-                .then((loggedInUserId) => friendApi.getAllFriends(loggedInUserId))
+                .then(response => friendApi.getAllFriends(response))
                 .then(r => {
                     const comparePotentialFriendToUsername = r.filter(r => (r.user.username===potentialFriend ))
         // If potentialFriendId is the same as loggedInUserId then it will inform user that they are unable to friend themself
@@ -114,24 +115,24 @@ export default {
                         window.alert(`You are already friends with ${potentialFriend}`)
                     // else it will take the values for loggedInUserId and potentialFriendId and create and object that will be put into the friends array
                     } else {
-
-                            const friendObject = {
-                                currentUserId: loggedInUserId,
-                                userId: potentialFriendId
-                            }
-                            friendApi.createFriendObject(friendObject)
+                        friendObject = {
+                            currentUserId: loggedInUserId,
+                            userId: potentialFriendId
                         }
-                        // returns loggedInUserId so I can pass it to the next .then
-                        return loggedInUserId
+                    }
+                    return friendObject
                 })
 
-                .then(loggedInUserId => friendApi.getAllFriends(loggedInUserId))
+                .then(response => friendApi.createFriendObject(response))
+                .then(() => {
+                    return loggedInUserId
+                })
+                .then(response => friendApi.getAllFriends(response))
                 .then(response => friendRenderDOM.renderFriendList(response))
 
                 // friendRenderDOM.renderAddFriendButton()
                 .then(messageApi.getAllMessages)
                 .then(response => renderMessage.renderMessageList(response))
-                    
             } else if (event.target.id.includes("declineFriendButton")) {
                 messageApi.getAllMessages()
                 .then(response => renderMessage.renderMessageList(response))
