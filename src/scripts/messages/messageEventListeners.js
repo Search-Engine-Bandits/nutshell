@@ -92,7 +92,7 @@ export default {
                 let loggedInUserId = parseInt(sessionStorage.getItem("activeUser"))
                 const potentialFriend = document.querySelector("#friendNameSearch").innerText
                 let potentialFriendId
-                let friendObject = {}
+
 
                 // pulls the potentialFriedId from an API call and populates the variable declared above
                 friendApi.getAllUsers(potentialFriend)
@@ -115,15 +115,13 @@ export default {
                         window.alert(`You are already friends with ${potentialFriend}`)
                     // else it will take the values for loggedInUserId and potentialFriendId and create and object that will be put into the friends array
                     } else {
-                        friendObject = {
+                        const friendObject = {
                             currentUserId: loggedInUserId,
                             userId: potentialFriendId
                         }
+                        return friendApi.createFriendObject(friendObject)
                     }
-                    return friendObject
                 })
-
-                .then(response => friendApi.createFriendObject(response))
                 .then(() => {
                     return loggedInUserId
                 })
