@@ -19,14 +19,14 @@ export default {
 
         document.querySelector("#container").addEventListener("click", () => {
 
-        const usernameInput = document.querySelector("#usernameInput").value.toLowerCase()
-        const username = usernameInput.split("@")[0]
-        const passwordRegister = document.querySelector("#passwordRegister").value
-        const passwordConfirm = document.querySelector("#passwordConfirm").value
-        
-        
+            
             if (event.target.id.includes("registerButton")) {
-
+                
+                const usernameInput = document.querySelector("#usernameInput").value.toLowerCase()
+                const username = usernameInput.split("@")[0]
+                const passwordRegister = document.querySelector("#passwordRegister").value
+                const passwordConfirm = document.querySelector("#passwordConfirm").value
+                
                 friendAPI.getAllUsersByEmail(usernameInput)
                     .then(response => {
                         
