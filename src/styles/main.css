@@ -37,6 +37,10 @@
  #newMessageDiv {
     max-height: 20px;
  }
+ .singleMessage {
+     margin-top: 20px;
+     margin-bottom: 20px;
+ }
  /* news articles */
  #domContainer {
     display: flex;
