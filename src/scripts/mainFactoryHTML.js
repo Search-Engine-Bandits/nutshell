@@ -2,7 +2,11 @@
 export default {
     populateInitialView: () => {
         return /*html*/`
-        <header id="navBar"></header>
+        <header id="navBar">
+        <image id="navBarImage" src="../../images/1024px-Walnut.svg.png"></img>
+        <h1>Nutshell<h1>
+        <button id="logoutButton" type="submit">Logout</button> 
+        </header>
         <div id="domContainer">
             <div id="leftFrame">
                 <aside id="friendContainer">

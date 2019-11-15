@@ -2,6 +2,8 @@ import renderMessage from "./messageRenderDOM.js"
 import messageApi from "./messageData.js"
 import friendApi from "../friends/friendsData.js"
 import friendRenderDOM from "../friends/friendsRenderDOM.js"
+import newsApi from "../news/newsData.js"
+import eventApi from "../events/eventData.js"
 
 
 export default {
@@ -131,9 +133,17 @@ export default {
                 // friendRenderDOM.renderAddFriendButton()
                 .then(messageApi.getAllMessages)
                 .then(response => renderMessage.renderMessageList(response))
+
+                //render events and articles from friends
+                .then(eventApi.friendsAndEvents)
+                .then(eventApi.allEvents)
+                .then(newsApi.getAllArticles)
+                .then(response => renderNews.renderAllArticles(response))
+
             } else if (event.target.id.includes("declineFriendButton")) {
                 messageApi.getAllMessages()
                 .then(response => renderMessage.renderMessageList(response))
+                
             }
         })
     }

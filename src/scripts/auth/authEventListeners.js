@@ -6,7 +6,7 @@ import dashboard from "../dashboard.js"
 export default {
 
     listenForWelcome: () => {
-        document.querySelector("#welcomeDiv").addEventListener("click", () => {
+        document.querySelector("#container").addEventListener("click", () => {
 
             if (event.target.id.includes("welcomeRegisterButton")) {
 
@@ -58,5 +58,16 @@ export default {
                         
                     })
                 }
-    })}
+    })},
+    listenForLogout: () => {
+        document.querySelector("#container").addEventListener("click", () => {
+            if (event.target.id.includes("logoutButton")) {
+                sessionStorage.clear()
+                document.querySelector("#container").innerHTML = html.populateWelcome()
+                // this.listenForWelcome()
+                // this.listenForRegister()
+            }
+
+        })
+    }
 }

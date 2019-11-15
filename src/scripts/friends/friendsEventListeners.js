@@ -1,5 +1,7 @@
 import friendRenderDOM from "./friendsRenderDOM.js"
 import api from "./friendsData.js"
+import newsApi from "../news/newsData.js"
+import eventApi from "../events/eventData.js"
 
 export default {
     listenForAddFriend: () => {
@@ -36,6 +38,11 @@ export default {
                     })
                     .then(response => {
                         friendRenderDOM.renderFriendList(response)
+                    //          //render events and articles from friends
+                    // .then(eventApi.friendsAndEvents)
+                    // .then(eventApi.allEvents)
+                    // .then(newsApi.getAllArticles)
+                    // .then(response => renderNews.renderAllArticles(response))
                     })
 
                 friendRenderDOM.renderAddFriendButton()
@@ -60,8 +67,13 @@ export default {
                         currentUserId = parseInt(sessionStorage.getItem("activeUser"))
                         return api.getAllFriends(currentUserId)
                     })
-                    .then(response => { friendRenderDOM.renderFriendList(response) }
-                    )
+                    .then(response => { friendRenderDOM.renderFriendList(response) })
+                    //          //render events and articles from friends
+                    // .then(eventApi.friendsAndEvents)
+                    // .then(eventApi.allEvents)
+                    // .then(newsApi.getAllArticles)
+                    // .then(response => renderNews.renderAllArticles(response))
+
             }
         })
     },

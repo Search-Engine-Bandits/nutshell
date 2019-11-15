@@ -17,7 +17,8 @@ export default {
 
     renderTaskList: (tasks) => {
         let taskList = ""
-        tasks.forEach(task => {
+        const loggedInUser = sessionStorage.getItem("activeUser")
+        tasks.filter(task => task.userId === loggedInUser).forEach(task => {
             const taskHtml = html.taskItem(task)
             taskList += taskHtml
         })

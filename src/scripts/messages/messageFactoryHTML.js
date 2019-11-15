@@ -10,7 +10,7 @@ export default {
     messageItem: (messageObject) => {
         return `
        <div class="singleMessage" id="singleMessage--${messageObject.id}">
-            <div id = "messageUsername--${messageObject.id}">${messageObject.user.username}</div>
+            <b><u><div id = "messageUsername--${messageObject.id}">${messageObject.user.username}</div></u></b>
             <div id= "messageText--${messageObject.id}">${messageObject.message}</div>
             <button id="editMessage--${messageObject.id}">Edit</button>
        </div>
