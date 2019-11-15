@@ -30,7 +30,7 @@
  #welcomeContainer {
     background-image: url("../../images/1024px-Walnut.svg.png");
     background-repeat: no-repeat;
-    background-position: 350px center;
+    background-position: center center;
     background-size: 400px 400px;
     z-index: 6;
     height: 500px;
