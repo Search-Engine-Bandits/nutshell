@@ -15,7 +15,9 @@ export default {
                 const location = document.getElementById("eventLocation--").value
                 const eventObject = factoryFunction.eventFactoryFunction(userId, name, date, location)
                 api.createSingleEvent(eventObject)
+                    .then(console.log("new event created"))
                     .then(api.allEvents)
+                    .then(console.log("after new event created"))
                     .then(html.renderNewEventButton)
             }
         })
