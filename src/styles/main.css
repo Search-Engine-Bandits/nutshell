@@ -25,12 +25,18 @@
  }
  body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+ 
+ #welcomeContainer {
     background-image: url("../../images/1024px-Walnut.svg.png");
     background-repeat: no-repeat;
-    background-position: top center;
-    background-size: 500px 500px;
+    background-position: 350px center;
+    background-size: 400px 400px;
     z-index: 6;
+    height: 500px;
  }
+
+ 
  #friendContainer {
     min-height: 20px;
     margin-bottom: 30px;

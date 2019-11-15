@@ -53,9 +53,11 @@ export default {
     populateWelcome: () => {
         authListeners.listenForWelcome()
         return `
-        <div id="welcomeDiv">
-            <h1>Welcome to Nutshell! Please click below to register.</h1>
-            <button id="welcomeRegisterButton" type="submit">Register</button>
+        <div id="welcomeContainer">
+            <div id="welcomeDiv">
+                <h1>Welcome to Nutshell! Please click below to register.</h1>
+                <button id="welcomeRegisterButton" type="submit">Register</button>
+                </div>
         <div>
         `
     },
