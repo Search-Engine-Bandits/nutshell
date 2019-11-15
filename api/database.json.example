@@ -1,257 +1,142 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "username": "Ryan",
-      "email": "ryan@email.com"
-    },
-    {
-      "id": 2,
-      "username": "Sophia",
-      "email": "sophia@sophia.com"
-    },
-    {
-      "id": 3,
-      "username": "Adam",
-      "email": "adam@email.com"
-    },
-    {
-      "id": 4,
-      "username": "John",
-      "email": "john@email.com"
-    },
-    {
-      "id": 5,
-      "username": "notAFriend",
-      "email": "nofriends@email.com"
-    },
-    {
-      "username": "smith",
-      "email": "smith@smith.net",
-      "id": 6
-    },
-    {
-      "username": "liam",
-      "email": "liam@liam.com",
-      "id": 7
-    },
-    {
-      "username": "mitch",
-      "email": "mitch",
-      "id": 8
-    }
-  ],
-  "articles": [
-    {
-      "userId": 1,
-      "articleName": "An ARTICLE title from Ryan",
-      "synopsis": "This is a great article omg",
-      "articleUrl": "http://www.codepotamus.com",
-      "timestamp": 1573660763443,
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "articleName": "TEST from Ryan",
-      "synopsis": "A super awesome test thing",
-      "articleUrl": "http://www.facebook.com",
-      "timestamp": 1573660791433,
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "articleName": "Cats make people hairy!!! from Ryan",
-      "synopsis": "This article explains how cat hair gets everywhere. It may be too late to save us?!?",
-      "articleUrl": "http://www.instagram.com",
-      "timestamp": 1573660887561,
-      "id": 3
-    },
-    {
-      "userId": 2,
-      "articleName": "An ARTICLE title from Sophia",
-      "synopsis": "This is a great article omg",
-      "articleUrl": "http://www.codepotamus.com",
-      "timestamp": 1573660763444,
-      "id": 4
-    },
-    {
-      "userId": 2,
-      "articleName": "TEST from Sophia",
-      "synopsis": "A super awesome test thing",
-      "articleUrl": "http://www.facebook.com",
-      "timestamp": 1573660791432,
-      "id": 5
-    },
-    {
-      "userId": 2,
-      "articleName": "Cats make people hairy!!! from Sophia",
-      "synopsis": "This article explains how cat hair gets everywhere. It may be too late to save us?!?",
-      "articleUrl": "http://www.instagram.com",
-      "timestamp": 1573660887560,
-      "id": 6
-    },
-    {
-      "userId": 3,
-      "articleName": "An ARTICLE title from ADAM",
-      "synopsis": "This is a great article omg",
-      "articleUrl": "http://www.codepotamus.com",
-      "timestamp": 1573660763449,
-      "id": 7
-    },
-    {
-      "userId": 3,
-      "articleName": "TEST from ADAM",
-      "synopsis": "A super awesome test thing",
-      "articleUrl": "http://www.facebook.com",
-      "timestamp": 1573660791438,
-      "id": 8
-    },
-    {
-      "userId": 3,
-      "articleName": "Cats make people hairy!!! from ADAM",
-      "synopsis": "This article explains how cat hair gets everywhere. It may be too late to save us?!?",
-      "articleUrl": "http://www.instagram.com",
-      "timestamp": 1573660887567,
-      "id": 9
-    },
-    {
-      "userId": 4,
-      "articleName": "An ARTICLE title from JOHN",
-      "synopsis": "This is a great article omg",
-      "articleUrl": "http://www.codepotamus.com",
-      "timestamp": 1573660763420,
-      "id": 10
-    },
-    {
-      "userId": 4,
-      "articleName": "TEST from JOHN",
-      "synopsis": "A super awesome test thing",
-      "articleUrl": "http://www.facebook.com",
-      "timestamp": 1573660791410,
-      "id": 11
-    },
-    {
-      "userId": 4,
-      "articleName": "Cats make people hairy!!! from JOHN",
-      "synopsis": "This article explains how cat hair gets everywhere. It may be too late to save us?!?",
-      "articleUrl": "http://www.instagram.com",
-      "timestamp": 1573660887511,
-      "id": 12
-    },
-    {
-      "userId": 5,
-      "articleName": "An ARTICLE title from notAFriend",
-      "synopsis": "This is a great article omg",
-      "articleUrl": "http://www.codepotamus.com",
-      "timestamp": 1573660763430,
-      "id": 13
-    },
-    {
-      "userId": 5,
-      "articleName": "TEST from notAFriend",
-      "synopsis": "A super awesome test thing",
-      "articleUrl": "http://www.facebook.com",
-      "timestamp": 1573660791420,
-      "id": 14
-    },
-    {
-      "userId": 5,
-      "articleName": "Cats make people hairy!!! from notAFriend",
-      "synopsis": "This article explains how cat hair gets everywhere. It may be too late to save us?!?",
-      "articleUrl": "http://www.instagram.com",
-      "timestamp": 1573660887521,
-      "id": 15
-    }
-  ],
-  "messages": [
-    {
-      "userId": 1,
-      "message": "hey there world!",
-      "timestamp": 1573596783153,
-      "id": 1
-    },
-    {
-      "userId": 2,
-      "message": "this is awesome chatting :)",
-      "timestamp": 1573596797822,
-      "id": 2
-    },
-    {
-      "id": 3,
-      "userId": 3,
-      "message": "TEST TEST",
-      "timestamp": 1573660887560
-    }
-  ],
-  "events": [
-    {
-      "userId": 1,
-      "name": "Taco Tuesday",
-      "date": "2019-11-12",
-      "location": "Taco Truck",
-      "id": 1
-    }
-  ],
-  "tasks": [
-    {
-      "userId": 1,
-      "task": "test task",
-      "compDate": "2018-12-31",
-      "completed": false,
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "task": "hi",
-      "compDate": "0011-01-02",
-      "completed": false,
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "task": "mark as complete k?",
-      "compDate": "2019-02-13",
-      "completed": false,
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "task": "compl",
-      "compDate": "2019-12-31",
-      "completed": false,
-      "id": 4
-    }
-  ],
-  "friends": [
-    {
-      "currentUserId": 2,
-      "userId": 5,
-      "id": 4
-    },
-    {
-      "currentUserId": 1,
-      "userId": 3,
-      "id": 5
-    },
-    {
-      "currentUserId": 1,
-      "userId": 4,
-      "id": 6
-    },
-    {
-      "currentUserId": 1,
-      "userId": 2,
-      "id": 7
-    },
-    {
-      "currentUserId": 7,
-      "userId": 1,
-      "id": 8
-    },
-    {
-      "currentUserId": 8,
-      "userId": 1,
-      "id": 9
-    }
-  ]
+ "users": [
+   {
+     "id": 1,
+     "username": "Ryan",
+     "email": "ryan@email.com"
+   },
+   {
+     "id": 2,
+     "username": "Sophia",
+     "email": "sophia@sophia.com"
+   },
+   {
+     "id": 3,
+     "username": "Adam",
+     "email": "adam@email.com"
+   },
+   {
+     "id": 4,
+     "username": "John",
+     "email": "john@email.com"
+   }
+ ],
+ "articles": [
+   {
+     "userId": 1,
+     "articleName": "An ARTICLE title from Ryan",
+     "synopsis": "This is a great article omg",
+     "articleUrl": "http://www.codepotamus.com",
+     "timestamp": 1573660763443,
+     "id": 1
+   },
+   {
+     "userId": 2,
+     "articleName": "TEST from Ryan",
+     "synopsis": "A super awesome test thing",
+     "articleUrl": "http://www.facebook.com",
+     "timestamp": 1573660791433,
+     "id": 2
+   },
+   {
+     "userId": 3,
+     "articleName": "Cats make people hairy!!! from Ryan",
+     "synopsis": "This article explains how cat hair gets everywhere. It may be too late to save us?!?",
+     "articleUrl": "http://www.instagram.com",
+     "timestamp": 1573660887561,
+     "id": 3
+   },
+   {
+     "userId": 4,
+     "articleName": "An ARTICLE title from Sophia",
+     "synopsis": "This is a great article omg",
+     "articleUrl": "http://www.codepotamus.com",
+     "timestamp": 1573660763444,
+     "id": 4
+   }
+ ],
+ "messages": [
+   {
+     "userId": 1,
+     "message": "hey there world!",
+     "timestamp": 1573596783153,
+     "id": 1
+   },
+   {
+     "userId": 2,
+     "message": "this is awesome chatting :)",
+     "timestamp": 1573596797822,
+     "id": 2
+   },
+   {
+     "id": 3,
+     "userId": 3,
+     "message": "TEST TEST",
+     "timestamp": 1573660887560
+   },
+   {
+     "userId": 4,
+     "message": "wonder if this will show up",
+     "timestamp": 1573836321133,
+     "id": 4
+   }
+ ],
+ "events": [
+   {
+     "userId": 1,
+     "name": "Taco Tuesday",
+     "date": "2019-11-12",
+     "location": "Taco Truck",
+     "id": 1
+   },
+   {
+     "userId": 2,
+     "name": "today",
+     "date": "2019-11-15",
+     "location": "ljh",
+     "id": 2
+   }
+ ],
+ "tasks": [
+   {
+     "userId": 1,
+     "task": "test task",
+     "compDate": "2018-12-31",
+     "completed": false,
+     "id": 1
+   },
+   {
+     "userId": 2,
+     "task": "hi",
+     "compDate": "0011-01-02",
+     "completed": false,
+     "id": 2
+   },
+   {
+     "userId": 3,
+     "task": "mark as complete k?",
+     "compDate": "2019-02-13",
+     "completed": false,
+     "id": 3
+   },
+   {
+     "userId": 4,
+     "task": "compl",
+     "compDate": "2019-12-31",
+     "completed": false,
+     "id": 4
+   }
+ ],
+ "friends": [
+   {
+     "currentUserId": 5,
+     "userId": 1,
+     "id": 1
+   },
+   {
+     "currentUserId": 5,
+     "userId": 4,
+     "id": 2
+   }
+ ]
 }
