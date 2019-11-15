@@ -3,10 +3,10 @@ import friendAPI from "../friends/friendsData.js"
 import dashboard from "../dashboard.js"
 
 
-export default {
+const listeners = {
 
     listenForWelcome: () => {
-        document.querySelector("#welcomeDiv").addEventListener("click", () => {
+        document.querySelector("#container").addEventListener("click", () => {
 
             if (event.target.id.includes("welcomeRegisterButton")) {
 
@@ -58,5 +58,17 @@ export default {
                         
                     })
                 }
-    })}
+    })},
+
+    listenForLogout: () => {
+        document.querySelector("#container").addEventListener("click", () => {
+            if (event.target.id.includes("logoutButton")) {
+                sessionStorage.clear()
+                document.querySelector("#container").innerHTML = html.populateWelcome()
+            }
+        })
+    }
+
 }
+
+export default listeners

@@ -17,6 +17,5 @@ if (sessionStorage.getItem("activeUser")) {
 }
 else {
     document.querySelector("#container").innerHTML = html.populateWelcome()
-    welcome.listenForWelcome()
-    welcome.listenForRegister()
+   
 }
