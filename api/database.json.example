@@ -128,15 +128,6 @@
    }
  ],
  "friends": [
-   {
-     "currentUserId": 5,
-     "userId": 1,
-     "id": 1
-   },
-   {
-     "currentUserId": 5,
-     "userId": 4,
-     "id": 2
-   }
+  
  ]
 }
