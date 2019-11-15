@@ -7,15 +7,26 @@ export default {
         `
     },
 
-    messageItem: (messageObject) => {
+    messageItemOwner: (messageObject) => {
         return `
        <div class="singleMessage" id="singleMessage--${messageObject.id}">
-            <div id = "messageUsername--${messageObject.id}">${messageObject.user.username}</div>
+            <b><div id = "messageUsername--${messageObject.id}">${messageObject.user.username}</div></b>
             <div id= "messageText--${messageObject.id}">${messageObject.message}</div>
             <button id="editMessage--${messageObject.id}">Edit</button>
        </div>
        `
     },
+
+    messageItemNonOwner: (messageObject) => {
+        return `
+       <div class="singleMessage" id="singleMessage--${messageObject.id}">
+            <b><u><div id = "messageUsername--${messageObject.id}">${messageObject.user.username}</div></u></b>
+            <div id= "messageText--${messageObject.id}">${messageObject.message}</div>
+            
+       </div>
+       `
+    },
+
 
     editMessageForm: (messageObject) => {
         return `

@@ -19,10 +19,16 @@ export default {
     },
 
     renderMessageList: (messages) => {
+        const loggedInUser = parseInt(sessionStorage.getItem("activeUser"))
         const messageListContainer = document.querySelector("#messageList")
         let messageList = ""
         messages.forEach(message => {
-            const messageHtml = html.messageItem(message)
+            let messageHtml =""
+            if (message.userId === loggedInUser) {
+                messageHtml = html.messageItemOwner(message)
+            } else {
+                messageHtml = html.messageItemNonOwner(message)
+            }
             messageList += messageHtml
         })
         document.querySelector("#messageList").innerHTML = messageList
