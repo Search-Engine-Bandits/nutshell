@@ -27,6 +27,7 @@ import friendsAPI from "./friends/friendsData"
 import renderNews from "./news/newsRenderDOM"
 import newsListeners from "./news/newsEventListeners"
 import newsApi from "./news/newsData.js"
+import authEventListeners from "./auth/authEventListeners.js"
 
 
 
@@ -97,6 +98,9 @@ export default {
         friendRenderDOM.renderAddFriendButton()
         friendListener.listenForAddFriend()
         friendListener.listenForFriendDelete()
+
+        authEventListeners.listenForLogout()
+
 
     }
 }

@@ -1,4 +1,7 @@
 // initial page load of containers for each section to avoid conflicts and assist with styling
+
+import authListeners from "./auth/authEventListeners.js"
+
 export default {
     populateInitialView: () => {
         return /*html*/`
@@ -44,6 +47,7 @@ export default {
 
     
     populateWelcome: () => {
+        authListeners.listenForWelcome()
         return `
         <div id="welcomeDiv">
             <h1>Welcome to Nutshell! Please click below to register.</h1>
@@ -53,6 +57,7 @@ export default {
     },
 
     populateRegistration: () => {
+        authListeners.listenForRegister()
         return `
         <div id="loginPage">
 
