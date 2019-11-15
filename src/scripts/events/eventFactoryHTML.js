@@ -56,7 +56,7 @@ export default {
     },
     friendEventItem: (eventObject) => {
         return `
-        <div class="FriendSingleEvent" id="friendSingleEvent--${eventObject.id}">
+        <div class="friendSingleEvent" id="friendSingleEvent--${eventObject.id}">
         <div class="eventName">${eventObject.name}</div>
         <div class="eventDate">Date of friend's event: ${eventObject.date}</div>
         <div class="eventLocation">Location of friend's event: ${eventObject.location}</div>
