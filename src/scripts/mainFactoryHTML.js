@@ -1,8 +1,15 @@
 // initial page load of containers for each section to avoid conflicts and assist with styling
+
+import authListeners from "./auth/authEventListeners.js"
+
 export default {
     populateInitialView: () => {
         return /*html*/`
-        <header id="navBar"></header>
+        <header id="navBar">
+            <image id="navBarImage" src="../../images/1024px-Walnut.svg.png"></img>
+            <h1>Nutshell<h1>
+            <button id="logoutButton" type="submit">Logout</button>
+       </header>
         <div id="domContainer">
             <div id="leftFrame">
                 <aside id="friendContainer">
@@ -40,6 +47,7 @@ export default {
 
     
     populateWelcome: () => {
+        authListeners.listenForWelcome()
         return `
         <div id="welcomeDiv">
             <h1>Welcome to Nutshell! Please click below to register.</h1>
@@ -49,6 +57,7 @@ export default {
     },
 
     populateRegistration: () => {
+        authListeners.listenForRegister()
         return `
         <div id="loginPage">
 
