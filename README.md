@@ -19,7 +19,7 @@ To start you off, here's an example of what the resources in your API should loo
 
 To help you along, here is a visualization of the ERD.
 
-![nutshell features](./images/ERD.png)
+![nutshell features](./images/erd.PNG)
 
 
 ## Functionality
