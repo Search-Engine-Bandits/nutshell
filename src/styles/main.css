@@ -1,49 +1,75 @@
-
-/* messages */
-#messageList {
-    color: red;
-    background-color: aquamarine;
-    border: 10px;
-   
-    overflow:scroll;
-};
-
-#newMessageDiv {
-    color: ORANGE;
-    background-color: brown;
-    border: 10px;
-    
-    
-
-}
-
-/* news articles */
-#articleContainer {
-    border: 1px solid blue;
-}
-
-#domContainer {
+#welcomeDiv {
+    background-image: url("../../images/1024px-Walnut.svg.png");
+    text-align: center;
+ }
+ header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+ }
+ #navBarImage {
+    height: 50px;
+    width: 50px;
+ }
+ body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url("../../images/1024px-Walnut.svg.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 500px 500px;
+    z-index: 6;
+ }
+ #friendContainer {
+    min-height: 20px;
+    margin-bottom: 30px;
+ }
+ /* messages */
+ #messageContainer {
+    display: flex;
+    flex-direction: column;
+    max-height: 550;
+ }
+ #messageList {
+    max-height: 500px;
+    overflow-y: scroll;
+ }
+ #newMessageDiv {
+    max-height: 20px;
+ }
+ /* news articles */
+ #domContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
-
-#leftFrame {
+    background-color: saddlebrown;
+ }
+ #leftFrame {
+    display: flex;
+    flex-direction: column;
     width: 30%;
-}
-
-#rightFrame {
+    padding: 20px;
+ }
+ #rightFrame {
     width: 70%;
-}
-
-.friendArticle {
+    padding: 20px;
+ }
+ .selfArticle {
+    background-color: white;
+ }
+ .friendArticle {
     font-style: italic;
     background-color: cornsilk;
-}
-
-/* Events */
-.singleEvent:first-child {
+ }
+ /* Events */
+ .singleEvent:first-child {
     background-color: aqua;
     font-weight: bold;
     font-size: 120%;
-}
+    border: black 1px solid;
+ }
+ #friendEvents {
+    background-color: cornsilk;
+    font-style: italic;
+    border: black solid 1px;
+ }
