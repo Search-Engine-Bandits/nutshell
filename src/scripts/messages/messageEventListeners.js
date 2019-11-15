@@ -16,7 +16,8 @@ export default {
 
                 const userId = parseInt(sessionStorage.getItem("activeUser"))
                 const message = document.querySelector("#messageText").value
-                const timestamp = new Date().getTime()
+                const timestamp = parseInt(Date.now())
+                console.log(timestamp)
 
                 const messageObject = {
                     userId: userId,
@@ -56,7 +57,7 @@ export default {
                 const editMessageId = event.target.id.split("--")[1]
                 const userId = parseInt(sessionStorage.getItem("activeUser"))
                 const message = document.querySelector(`#messageTextEdit--${editMessageId}`).value
-                const timestamp = document.querySelector(`#messageTimestamp--${editMessageId}`).value
+                const timestamp = parseInt(document.querySelector(`#messageTimestamp--${editMessageId}`).value)
                 const messageId = parseInt(editMessageId)
 
                 const messageObject = {
