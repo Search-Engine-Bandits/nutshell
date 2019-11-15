@@ -1,5 +1,5 @@
 import friendRenderDOM from "./friendsRenderDOM.js"
-import api from "./friendsData.js"
+import friendAPI from "./friendsData.js"
 
 export default {
     listenForAddFriend: () => {
@@ -11,37 +11,45 @@ export default {
 
                 const username = document.querySelector("#friendName").value
                 let currentUserId = parseInt(sessionStorage.getItem("activeUser"))
+                let potentialFriendId
 
-                api.getAllUsers(username)
-                    .then(response => {
+                friendAPI.getAllUsers(username)
+                .then(response => {
 
-                        const userId = parseInt(response[0].id)
+                    if (response.length === 0) {
+                        window.alert("Please enter correct username")
+                    } else {
 
-                        const friendObject = {
-                            currentUserId: currentUserId,
-                            userId: userId
-                        }
+                    potentialFriendId = parseInt(response[0].id)
+                    
+                    friendAPI.getAllFriends(currentUserId)
+
+                    .then(r => {
+                        const comparePotentialFriendToUsername = r.filter(r => (r.user.username===username))
                         
-                        return friendObject
-
+                        if (potentialFriendId===currentUserId) {
+                            window.alert("You cannot friend yourself")
+    
+                        } else if  (comparePotentialFriendToUsername.length > 0) {
+                            window.alert(`You are already friends with ${username}`)
+    
+                        } else {
+                            const friendObject = {
+                                currentUserId: currentUserId,
+                                userId: potentialFriendId
+                            }
+                            friendAPI.createFriendObject(friendObject)
+                            .then(() => {
+                                return currentUserId
+                            })
+                            .then(response => friendAPI.getAllFriends(response))
+                            .then(response => friendRenderDOM.renderFriendList(response))
+                            .then(friendRenderDOM.renderAddFriendButton)
+                        }
                     })
-                    .then(response => {
-
-                       return api.createFriendObject(response)
-
-                    })
-                    .then((response) => {
-                        currentUserId = parseInt(sessionStorage.getItem("activeUser"))
-                        return api.getAllFriends(currentUserId)
-                    })
-                    .then(response => {
-                        friendRenderDOM.renderFriendList(response)
-                    })
-
-                friendRenderDOM.renderAddFriendButton()
-
-
-
+                }
+                
+            })
             }
         })
     },
@@ -55,10 +63,10 @@ export default {
 
                 let currentUserId = parseInt(sessionStorage.getItem("activeUser"))
 
-                api.deleteFriend(parseInt(deletedFriendId))
+                friendAPI.deleteFriend(parseInt(deletedFriendId))
                     .then((response) => {
                         currentUserId = parseInt(sessionStorage.getItem("activeUser"))
-                        return api.getAllFriends(currentUserId)
+                        return friendAPI.getAllFriends(currentUserId)
                     })
                     .then(response => { friendRenderDOM.renderFriendList(response) }
                     )
