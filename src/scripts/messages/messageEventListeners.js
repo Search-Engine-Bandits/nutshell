@@ -17,7 +17,6 @@ export default {
                 const userId = parseInt(sessionStorage.getItem("activeUser"))
                 const message = document.querySelector("#messageText").value
                 const timestamp = parseInt(Date.now())
-                console.log(timestamp)
 
                 const messageObject = {
                     userId: userId,
