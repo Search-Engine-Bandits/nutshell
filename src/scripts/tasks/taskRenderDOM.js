@@ -16,10 +16,13 @@ export default {
     },
 
     renderTaskList: (tasks) => {
+        const loggedInUser = parseInt(sessionStorage.getItem("activeUser"))
         let taskList = ""
         tasks.forEach(task => {
-            const taskHtml = html.taskItem(task)
-            taskList += taskHtml
+            if (task.userId === loggedInUser) {
+                const taskHtml = html.taskItem(task)
+                taskList += taskHtml
+            }
         })
         document.querySelector("#taskList").innerHTML = taskList
     },

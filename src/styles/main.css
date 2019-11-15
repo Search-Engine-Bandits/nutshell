@@ -12,6 +12,17 @@
     height: 50px;
     width: 50px;
  }
+
+
+ #taskList div {
+    background-color: white;
+ }
+
+ .singleTask {
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 5px;
+ }
  body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-image: url("../../images/1024px-Walnut.svg.png");
@@ -72,7 +83,7 @@
     font-size: 120%;
     border: black 1px solid;
  }
- #friendEvents {
+ .friendSingleEvent {
     background-color: cornsilk;
     font-style: italic;
     border: black solid 1px;

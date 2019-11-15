@@ -13,27 +13,31 @@ export default {
         <div id="domContainer">
             <div id="leftFrame">
                 <aside id="friendContainer">
+                    <h3>Friends</h3>
                     <div id="friendList">
                     </div>
                     <div id="addFriendDiv">
                     </div>
                 </aside>
                 <aside id="messageContainer">
-                <article id="messageList"></article>
-                <article id="newMessageDiv"></article>
-            </aside>
+                    <h3>Messages</h3>
+                    <article id="messageList"></article>
+                    <article id="newMessageDiv"></article>
+                </aside>
             </div>
             <div id="rightFrame">
                 <article id="taskContainer">
+                    <h3>Tasks</h3>
                     <div id="taskList"></div>
                     <div id="newTaskDiv"></div>
                 </article>
                 <article id="articleContainer">
-                    <h2>News Articles</h2>
+                    <h3>News Articles</h3>
                     <div id="articleListContainer"></div>
                     <div id="newArticleButtonContainer"></div>
                 </article>
                 <article id="eventList">
+                    <h3>Events</h3>
                     <div id="newEventDiv"></div>
                     <div id="allEvents">
                         <div id="myEvents"></div>
