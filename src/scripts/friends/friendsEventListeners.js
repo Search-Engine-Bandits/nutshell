@@ -1,5 +1,6 @@
 import friendRenderDOM from "./friendsRenderDOM.js"
 import friendAPI from "./friendsData.js"
+import dashboard from "../dashboard.js"
 
 export default {
     listenForAddFriend: () => {
@@ -42,9 +43,7 @@ export default {
                             .then(() => {
                                 return currentUserId
                             })
-                            .then(response => friendAPI.getAllFriends(response))
-                            .then(response => friendRenderDOM.renderFriendList(response))
-                            .then(friendRenderDOM.renderAddFriendButton)
+                            .then(dashboard.listenAndRenderDashboard)
                         }
                     })
                 }
@@ -68,8 +67,7 @@ export default {
                         currentUserId = parseInt(sessionStorage.getItem("activeUser"))
                         return friendAPI.getAllFriends(currentUserId)
                     })
-                    .then(response => { friendRenderDOM.renderFriendList(response) }
-                    )
+                    .then(dashboard.listenAndRenderDashboard)
             }
         })
     },
