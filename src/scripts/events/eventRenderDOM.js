@@ -1,5 +1,5 @@
 import html from "./eventFactoryHTML.js"
-const currentUser = parseInt(sessionStorage.getItem("activeUser"))
+// let currentUser = parseInt(sessionStorage.getItem("activeUser"))
 export default {
 
     // object method for rendering the event button to the DOM
@@ -16,7 +16,7 @@ export default {
     eventToDom: (eventArray) => {
         let eventHTMLString = ""
         eventArray.forEach(event => {
-            if (currentUser === event.userId) {
+            if (parseInt(sessionStorage.getItem("activeUser")) === event.userId) {
                 eventHTMLString += html.eventItem(event)
             }
         })
